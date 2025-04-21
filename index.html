@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXTERIX</title>
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+
+<body class="font-sans">
+    <div id="cursor" class="custom-cursor hidden md:block"></div>
+
+    <div class="w-full overflow-hidden">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm" data-aos="fade-down"
+            data-aos-duration="600">
+            <div class="font-bold text-2xl text-gray-800 mr-5 interactive">NEXTERIX</div>
+
+            <div class="block md:hidden cursor-pointer text-2xl interactive" id="menuToggle">☰</div>
+
+            <div class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-5 md:mt-0" id="navContainer">
+                <ul class="flex flex-col md:flex-row list-none w-full md:w-auto">
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Products</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Services</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">About
+                            Us</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Contact
+                            Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="md:ml-auto mt-4 md:mt-0 w-full md:w-auto flex justify-center md:justify-end" id="navRight">
+                <a href="#"
+                    class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition-colors btn-hover interactive">Let's
+                    Talk</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="py-16 text-center bg-white">
+            <h1 class="text-3xl md:text-[37px] lg:text-3xl mb-2 text-gray-800 font-normal leading-relaxed px-4"
+                id="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                Your End-to-End Partner for <span class="text-primary font-bold">Logistics Tech,<br></span> <span
+                    class="text-primary font-bold">BPO</span> & <span class="text-primary font-bold">Digital
+                    Growth.</span>
+            </h1>
+            <p class="text-gray-600 mb-8 text-base px-4" data-aos="fade-up" data-aos-delay="200"
+                data-aos-duration="1000">Smart Tech. Skilled Teams. Streamlined Operations.</p>
+
+            <div class="max-w-md mx-auto px-4 mb-12" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                <div class="flex flex-col sm:flex-row relative interactive">
+                    <input type="email" placeholder="Your Email.."
+                        class="flex-grow py-3 px-4 border-2 border-gray-300 rounded-tl-lg rounded-tr-lg sm:rounded-tr-none sm:rounded-bl-lg rounded-bl-none bg-lightgray text-sm mb-2 sm:mb-0 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    <button
+                        class="bg-primary text-white py-2 px-4 rounded-bl-lg rounded-br-lg sm:rounded-bl-none sm:rounded-tr-lg text-sm hover:bg-red-700 transition-colors btn-hover">Let's
+                        Talk</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 px-4 md:px-14">
+                <div class="md:col-span-1 mx-auto w-full md:w-full image-reveal" data-aos="fade-right"
+                    data-aos-duration="1000">
+                    <img src="/Untitled design (7) (1).png" alt="Woman working on laptop"
+                        class="w-full h-48 md:h-80 object-cover rounded-[20px] shadow-lg hero-image" id="hero-img-1">
+                </div>
+                <div class="md:col-span-2 image-reveal" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="200">
+                    <img src="/bernd-dittrich-krhseyzjrYk-unsplash.jpg" alt="Shipping containers"
+                        class="w-full h-48 md:h-80 object-cover rounded-[20px] shadow-lg hero-image" id="hero-img-2">
+                </div>
+                <div class="md:col-span-1 mx-auto w-full md:w-full image-reveal" data-aos="fade-left"
+                    data-aos-duration="1000" data-aos-delay="400">
+                    <img src="/Untitled design (6) (1).png" alt="Business people looking at tablet"
+                        class="w-full h-48 md:h-80 object-cover rounded-[20px] shadow-lg hero-image" id="hero-img-3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="bg-gray-800 py-8 px-6 md:p-[4rem] rounded-[40px] mx-4 md:mx-[10rem] my-[-2rem] relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Left side card -->
+                <div class="lg:col-span-4 bg-white rounded-[40px] p-8 flex flex-col justify-center h-[25rem] mt-12 card-hover shadow-lg" data-aos="fade-right" data-aos-duration="1000">
+                    <div>
+                        <div class="mb-6 text-center">
+                            <h2 class="font-bold text-xl tracking-wider text-gray-800">NEXTBRIX</h2>
+                        </div>
+                        <p class=" text-center text-gray-700 mb-4 text-sm leading-relaxed">
+                            We deliver smart BPO services, cutting-edge digital solutions, and advanced logistics tech — all under one roof. From startups to enterprises, we help businesses scale with the right tools, teams, and technology.
+                        </p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors transform hover:scale-105">Let's Talk</button>
+                    </div>
+                </div>
+
+                <!-- Right side cards -->
+                <div class="lg:col-span-8 flex flex-col gap-10">
+                    <!-- BPO Card -->
+                    <div class="bpo-card rounded-[40px] bg-gray-100 p-5 flex items-center card-hover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+                        <div class="flex-shrink-0 mr-5">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-md flex items-center justify-center">
+                                <img src="/g8.png" alt="BPO Icon" class="w-10 h-10">
+                            </div>
+                        </div>
+                        <div class="text-gray-800">
+                            <h3 class="font-bold text-base mb-1">BPO</h3>
+                            <p class="text-xs md:text-sm mb-1 leading-relaxed opacity-90">We provide expert customer support, sales teams, and back-office solutions to help businesses reduce costs and scale efficiently.</p>
+                            <a href="#" class="text-primary text-xs group flex items-center">Learn more <span class="transform translate-x-0 group-hover:translate-x-1 transition-transform">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Digital Solution Card -->
+                    <div class="solution-card rounded-[40px] p-5 flex items-center card-hover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="flex-shrink-0 mr-5">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-md flex items-center justify-center">
+                                <img src="/Open source-rafiki 1.png" alt="Digital Solution Icon" class="w-10 h-10">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base mb-1">Digital Solution</h3>
+                            <p class="text-xs md:text-sm mb-1 leading-relaxed">From custom websites to eCommerce stores and branding, we craft tailored digital experiences that drive growth.</p>
+                            <a href="#" class="text-primary text-xs group flex items-center">Learn more <span class="transform translate-x-0 group-hover:translate-x-1 transition-transform">→</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Logistics Tech Card -->
+                    <div class="solution-card rounded-[40px] p-5 flex items-center card-hover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="flex-shrink-0 mr-5">
+                            <div class="w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-md flex items-center justify-center">
+                                <img src="/Logistics-rafiki 1.png" alt="Logistics Tech Icon" class="w-10 h-10">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base mb-1">Logistics Tech</h3>
+                            <p class="text-xs md:text-sm mb-1 leading-relaxed">We offer TMS systems, and workflow automation for trucking companies and dispatchers to streamline their operations.</p>
+                            <a href="#" class="text-primary text-xs group flex items-center">Learn more <span class="transform translate-x-0 group-hover:translate-x-1 transition-transform">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- Digital Solutions Section -->
+        <section class="digital-solutions py-16 px-4 md:px-16 my-20 bg-gradient-glow">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-8">
+                    <!-- Left Content -->
+                    <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-3xl font-bold mb-6">Transforming Ideas into Powerful Digital Solutions</h2>
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                            At NEXTERIX, we specialize in crafting custom web development solutions tailored to your
+                            business needs. From dynamic CRM systems to fully-featured eCommerce stores and bespoke web
+                            applications, our expert team turns your ideas into high-performing, scalable, and
+                            user-friendly digital products.
+                        </p>
+                        <a href="#"
+                            class="inline-block bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-full text-sm transition-all btn-hover interactive">Let's
+                            Talk</a>
+                    </div>
+
+                    <!-- Right Content -->
+                    <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="relative floating">
+                            <img src="/Group 1000003109.png" alt="Desktop with laptop"
+                                class="w-full rounded-lg shadow-xl">
+
+                            <!-- Decorative Elements -->
+                            <div class="absolute -top-5 -left-5 w-12 h-12 bg-primary opacity-20 rounded-full"></div>
+                            <div class="absolute -bottom-3 -right-3 w-16 h-16 bg-blue-500 opacity-20 rounded-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <!-- image section -->
+ <section class="relative w-full max-w-6xl mx-auto py-12 px-4 flex justify-center overflow-hidden" id="animated-section">
+           
+        
+    <div class="relative w-full flex justify-center items-center h-64">
+        <!-- Center image -->
+        <div class="absolute w-[40rem] rounded-lg shadow-xl z-30 overflow-hidden">
+            <img src="/section.png" alt="Center Image" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Second from left -->
+        <div class="absolute left-1/2 animated-image delay-100 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem]" style="--final-x: -26rem;">
+            <img src="/Untitled design (12).png" alt="Second Left Image" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Leftmost image -->
+        <div class="absolute left-1/2 animated-image delay-200 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem]" style="--final-x: -32rem;">
+            <img src="/Untitled design (13).png" alt="Leftmost Image" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Second from right -->
+        <div class="absolute left-1/2 animated-image delay-300 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem]" style="--final-x: 14rem;">
+            <img src="/Untitled design (10) (1).png" alt="Second Right Image" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Rightmost image -->
+        <div class="absolute left-1/2 animated-image delay-400 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem]" style="--final-x: 20rem;">
+            <img src="/Untitled design (11).png" alt="Rightmost Image" class="w-full h-full object-cover">
+        </div>
+    </div>
+
+   
+</section>
+
+
+        <!-- CRM Section -->
+        <section class="crm-section py-16 px-6 md:px-16 my-20 rounded-3xl mx-4 md:mx-16 relative z-10">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="text-white z-10 relative" data-aos="fade-right" data-aos-duration="1000">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-glow" id="crm-title">AI-Powered CRM Built
+                            for Trucking & Dispatch</h2>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Streamline your fleet operations with our intelligent CRM designed specifically for trucking
+                            companies, drivers, and dispatchers. From automated load assignments to real-time driver
+                            tracking and smart scheduling, our system uses AI to optimize every step of your logistics
+                            workflow.
+                        </p>
+                        <a href="#"
+                            class="inline-block bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-full text-sm transition-all btn-hover interactive">Book
+                            a Demo</a>
+                    </div>
+                    <div class="relative z-10" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="relative">
+                            <img src="/7069166_3249201 1.png" alt="CRM Dashboard"
+                                class="w-full rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-700">
+                            <div
+                                class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary opacity-10 rounded-full blur-xl">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+<section class="bg-black text-white py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+            <p class="text-yellow-400 uppercase text-sm font-medium tracking-wider mb-2">TESTIMONIALS</p>
+            <h2 class="text-3xl font-bold">What Clients Say</h2>
+        </div>
+        
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-900 rounded-lg p-6">
+                <!-- Stars -->
+                <div class="flex mb-4">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                </div>
+                
+                <!-- Testimonial Content -->
+                <p class="text-gray-300 mb-6">Absolutely impressed with the sleek and user-friendly design. The layout perfectly reflects the professionalism - highly recommended for anyone looking to elevate their business.</p>
+                
+                <!-- Client Info -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-medium">Dan Martin</p>
+                        <p class="text-gray-400 text-sm">Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-900 rounded-lg p-6">
+                <!-- Stars -->
+                <div class="flex mb-4">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                </div>
+                
+                <!-- Testimonial Content -->
+                <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the absolute best service hire & luxury car hire experience possible in the United Kingdom.</p>
+                
+                <!-- Client Info -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-medium">Dan Martin</p>
+                        <p class="text-gray-400 text-sm">Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-900 rounded-lg p-6">
+                <!-- Stars -->
+                <div class="flex mb-4">
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                </div>
+                
+                <!-- Testimonial Content -->
+                <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the absolute best supercar hire & luxury car hire experience possible in the United Kingdom.</p>
+                
+                <!-- Client Info -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                        <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-medium">Dan Martin</p>
+                        <p class="text-gray-400 text-sm">Customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
+    </div>
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="md:col-span-1">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">NEXTERIX</h2>
+                    <p class="text-gray-700 mb-4">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-blue-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-red-500">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.999 3.344v13.312c0 1.761-1.252 3.24-2.945 3.52-1.6.263-3.187-.65-3.542-2.114-1.276-.173-2.388-.92-2.95-1.973-.248-.468-.395-.994-.431-1.54-.01-.152-.013-.3-.009-.446.015-.527.146-1.016.366-1.453-.237-.296-.417-.632-.53-.985-.37-1.156.542-2.464 1.657-3.155.888-.552 1.98-.798 3.025-.718.976.074 1.918.425 2.717.994 1.032.735 1.683 1.95 1.642 3.264v1.268c-.019 1.003-1.624 1.003-1.643 0v-1.268c.021-.667-.273-1.32-.863-1.734-.524-.37-1.14-.59-1.788-.639-.682-.051-1.397.099-1.969.452-.532.329-.889.83-.966 1.159-.048.204.132.516.216.692.101.214.272.529.608.784.473.363 1.087.47 1.656.315.898-.242 1.633.44 1.633 1.032 0 .514-.096.99-.255 1.436.872-.03 1.962-.01 1.962 1.034v4.445c.001.53.457.935.996.912.516-.023.892-.487.892-1.004V3.344c0-.553.531-1.04 1.092-1.012.517.028.908.501.908.974z"/>
+                                <circle cx="12" cy="8" r="3"/>
+                                <path d="M4 8.007a.937.937 0 01-.938-.937c0-.517.422-.937.938-.937s.937.42.937.937a.926.926 0 01-.937.937zm0 11.986a.937.937 0 01-.938-.937c0-.517.422-.937.938-.937s.937.42.937.937a.926.926 0 01-.937.937zm3.938-6.986a.937.937 0 01-.937.937.937.937 0 010-1.875.937.937 0 01.937.938z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-pink-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.247 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Products Column -->
+                <div class="md:col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4">PRODUCTS</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Payments</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Pricing</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Global</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Services Column -->
+                <div class="md:col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                    </ul>
+                </div>
+    
+                <!-- About Column -->
+                <div class="md:col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2024 Nexterix, is proudly created by WebCrafto</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Mobile menu toggle functionality
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            const navContainer = document.getElementById('navContainer');
+            navContainer.classList.toggle('hidden');
+
+            // Also toggle the navigation right section if it exists
+            const navRight = document.getElementById('navRight');
+            if (navRight) {
+                navRight.classList.toggle('hidden');
+            }
+        });
+
+        // Hero title text animation
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroTitle = document.getElementById('hero-title');
+            const originalHTML = heroTitle.innerHTML;
+            const textContent = heroTitle.textContent;
+
+            // Create a container for the animated text that preserves the original markup
+            const fragments = [];
+            let currentIndex = 0;
+
+            // Process the original HTML to wrap each character in a span while preserving HTML tags
+            function processHTML(html) {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+
+                function traverseNodes(node) {
+                    if (node.nodeType === 3) { // Text node
+                        const text = node.textContent;
+                        const spans = [];
+
+                        for (let i = 0; i < text.length; i++) {
+                            spans.push(`<span class="animated-chars" style="transition-delay: ${currentIndex * 0.03}s;">${text[i]}</span>`);
+                            currentIndex++;
+                        }
+
+                        const spanHTML = spans.join('');
+                        const spanFragment = document.createRange().createContextualFragment(spanHTML);
+                        node.parentNode.replaceChild(spanFragment, node);
+                    } else if (node.nodeType === 1) { // Element node
+                        Array.from(node.childNodes).forEach(child => traverseNodes(child));
+                    }
+                }
+
+                Array.from(tempDiv.childNodes).forEach(child => traverseNodes(child));
+                return tempDiv.innerHTML;
+            }
+
+            const animatedHTML = processHTML(originalHTML);
+            heroTitle.innerHTML = animatedHTML;
+
+            // Trigger the animation after a short delay
+            setTimeout(() => {
+                const chars = document.querySelectorAll('.animated-chars');
+                chars.forEach(char => {
+                    char.style.opacity = 1;
+                    char.style.transform = 'translateY(0)';
+                });
+            }, 500);
+
+            // GSAP animations for CRM section
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from('#crm-title', {
+                scrollTrigger: {
+                    trigger: '#crm-title',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            // Floating animation for message bubbles
+            gsap.to('.message-bubble', {
+                y: -10,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                stagger: 0.3
+            });
+
+            // Decoration elements animation
+            gsap.to('.decoration', {
+                scale: 1.2,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                stagger: 0.2
+            });
+
+            // Parallax effect on scroll
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    },
+                    backgroundPosition: `50% ${-50}px`,
+                    ease: 'none'
+                });
+            });
+        });
+
+        // Hover animations for cards
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // When section is in view
+                    if (entry.isIntersecting) {
+                        // Add animation class to all images
+                        const animatedImages = document.querySelectorAll('.animated-image');
+                        animatedImages.forEach(image => {
+                            image.classList.add('animate');
+                        });
+                        
+                        // Stop observing after animation is triggered once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,      // Use viewport as the root
+                threshold: 0.2,  // Trigger when at least 20% of the section is visible
+                rootMargin: '0px'
+            });
+
+            // Start observing the section
+            const section = document.getElementById('animated-section');
+            if (section) {
+                observer.observe(section);
+            }
+        });
+    </script>
+</body>
+
+</html>
