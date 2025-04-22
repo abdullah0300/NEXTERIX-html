@@ -23,6 +23,8 @@
                         navbg: '#e4dede',
                         lightgray: '#f5f3f3',
                         darkbg: '#263238',
+                        grey2:'#F5F5F5',
+                        herobpo:'#D9D9D9',
                     }
                 }
             }
@@ -35,42 +37,76 @@
 <body class="font-sans">
     <div id="cursor" class="custom-cursor hidden md:block"></div>
     <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm" data-aos="fade-down"
-        data-aos-duration="600">
-        <div class="font-bold text-2xl text-gray-800 mr-5 interactive">NEXTERIX</div>
+            data-aos-duration="600">
+            <!-- Left - Burger menu on mobile -->
+            <div class="block md:hidden cursor-pointer text-2xl interactive order-1" id="menuToggle">☰</div>
+            
+            <!-- Center - Logo for all screens -->
+            <div class="font-bold text-2xl text-gray-800 mx-auto md:mx-0 order-2 md:order-1 interactive">
+                <!-- Replace text with logo image -->
+                <img src="/logo.png" alt="NEXTERIX" class="h-10 md:h-12">
+            </div>
 
-        <div class="block md:hidden cursor-pointer text-2xl interactive" id="menuToggle">☰</div>
+            <!-- Right - Navigation menu -->
+            <div class="hidden md:flex flex-col md:flex-row md:ml-auto order-3 md:order-2" id="navContainer">
+                <ul class="flex flex-col md:flex-row list-none w-full md:w-auto">
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Products</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Services</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">About
+                            Us</a>
+                    </li>
+                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
+                        <a href="#"
+                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Contact
+                            Us</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-5 md:mt-0" id="navContainer">
-            <ul class="flex flex-col md:flex-row list-none w-full md:w-auto">
-                <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                    <a href="#"
-                        class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Products</a>
-                </li>
-                <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                    <a href="#"
-                        class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Services</a>
-                </li>
-                <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                    <a href="#"
-                        class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">About
-                        Us</a>
-                </li>
-                <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                    <a href="#"
-                        class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Contact
-                        Us</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="md:ml-auto mt-4 md:mt-0 w-full md:w-auto flex justify-center md:justify-end" id="navRight">
-            <a href="#"
-                class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition-colors btn-hover interactive">Let's
-                Talk</a>
-        </div>
-    </nav>
+            <!-- Call to action button -->
+            <div class="md:ml-8 mt-0 order-3 hidden md:block" id="navRight">
+                <a href="#"
+                    class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition-colors btn-hover interactive">Let's
+                    Talk</a>
+            </div>
+            
+            <!-- Mobile menu container - hidden by default -->
+            <div class="fixed inset-0 bg-white z-50 p-5 flex-col justify-start items-center hidden" id="mobileMenu">
+                <div class="flex justify-between items-center w-full mb-10">
+                    <div class="text-2xl cursor-pointer" id="closeMenu">✕</div>
+                    <img src="/logo.png" alt="NEXTERIX" class="h-10">
+                </div>
+                
+                <ul class="flex flex-col list-none w-full text-center space-y-6">
+                    <li>
+                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Products</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Services</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-lg text-gray-800 hover:text-primary">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Contact Us</a>
+                    </li>
+                </ul>
+                
+                <div class="mt-10">
+                    <a href="#" class="bg-primary text-white px-6 py-3 rounded-full text-base hover:bg-red-700 transition-colors btn-hover">Let's Talk</a>
+                </div>
+            </div>
+        </nav>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-darkbg text-white">
+    <section class="relative overflow-hidden bg-grey2 text-black">
         <!-- Animated Background Elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
             <div class="absolute top-20 left-10 w-64 h-64 bg-primary opacity-10 rounded-full blur-xl"></div>
@@ -83,7 +119,7 @@
                 <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right" data-aos-duration="1000">
                     <h1 class="text-5xl font-bold mb-6 leading-tight">Innovative <span class="text-primary">BPO
                             Solutions</span> for Your Business Growth</h1>
-                    <p class="text-xl text-gray-300 mb-8">Transform your operations with our comprehensive Business
+                    <p class="text-xl text-black mb-8">Transform your operations with our comprehensive Business
                         Process Outsourcing services designed to enhance efficiency, reduce costs, and accelerate
                         growth.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -91,42 +127,39 @@
                             class="bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-red-700 transition-colors btn-modern interactive">Get
                             Started</a>
                         <a href="#services"
-                            class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-darkbg transition-colors btn-modern interactive">Explore
+                            class="bg-transparent border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-darkbg transition-colors btn-modern interactive">Explore
                             Services</a>
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                     <div class="relative z-10 float-animation">
-                        <img src="/7069166_3249201 1.png" alt="BPO Services Illustration"
-                            class="rounded-lg shadow-2xl mx-auto">
-                        <!-- Decorative elements -->
-                        <div class="absolute -top-5 -right-5 w-20 h-20 bg-primary rounded-lg opacity-80 -z-10"></div>
-                        <div class="absolute -bottom-5 -left-5 w-20 h-20 bg-blue-500 rounded-lg opacity-80 -z-10"></div>
-                    </div>
+                        <img src="/Call center-amico.svg" alt="BPO Services Illustration"
+                            class="rounded-lg  mx-auto">
+                     </div>
                 </div>
             </div>
 
             <!-- Stats Counters -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20" data-aos="fade-up" data-aos-delay="500">
                 <div
-                    class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
+                    class="text-center p-6 bg-gray-900 bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
                     <h3 class="text-4xl font-bold text-primary counter" data-target="98">0</h3>
-                    <p class="text-gray-300 mt-2">Client Satisfaction</p>
+                    <p class="text-black mt-2">Client Satisfaction</p>
                 </div>
                 <div
-                    class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
+                    class="text-center p-6 bg-gray-900 bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
                     <h3 class="text-4xl font-bold text-primary counter" data-target="200">0</h3>
-                    <p class="text-gray-300 mt-2">Global Clients</p>
+                    <p class="text-black mt-2">Global Clients</p>
                 </div>
                 <div
-                    class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
+                    class="text-center p-6 bg-gray-900 bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
                     <h3 class="text-4xl font-bold text-primary counter" data-target="850">0</h3>
-                    <p class="text-gray-300 mt-2">Team Members</p>
+                    <p class="text-black mt-2">Team Members</p>
                 </div>
                 <div
-                    class="text-center p-6 bg-white bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
+                    class="text-center p-6 bg-gray-900 bg-opacity-10 rounded-lg backdrop-filter backdrop-blur-lg counter-wrapper">
                     <h3 class="text-4xl font-bold text-primary counter" data-target="15">0</h3>
-                    <p class="text-gray-300 mt-2">Years Experience</p>
+                    <p class="text-black mt-2">Years Experience</p>
                 </div>
             </div>
         </div>
