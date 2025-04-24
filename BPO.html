@@ -41,7 +41,7 @@
 
     <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
         <!-- Mobile burger menu -->
-        <div class="block md:hidden cursor-pointer text-2xl" id="menuToggle">☰</div>
+        <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
 
         <!-- Logo -->
         <div class="font-bold text-center md:text-left mx-auto md:mx-0">
@@ -52,25 +52,32 @@
         <div class="hidden md:flex items-center">
             <ul class="flex space-x-8">
                 <!-- Products Dropdown -->
-                <li class="relative group">
-                    <a href="#" class="flex items-center text-gray-800 hover:text-primary">
+                <li class="relative nx-dropdown-container">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_products">
                         Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
-                    </a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
-                        <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                    </button>
+                    <div id="nx_products_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="Fleetsync.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync
+                            CRM</a>
                     </div>
                 </li>
 
                 <!-- Services Dropdown -->
-                <li class="relative group">
-                    <a href="Services.html" class="flex items-center text-gray-800 hover:text-primary">
+                <li class="relative nx-dropdown-container">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_services">
                         Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
-                    </a>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
+                    </button>
+                    <div id="nx_services_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
                         <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
                         <a href="Digital-Solutions.html"
                             class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
@@ -88,45 +95,41 @@
         </div>
 
         <!-- Mobile menu - hidden by default -->
-        <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="mobileMenu">
+        <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
             <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
                 <!-- Header with close button -->
                 <div class="flex justify-between items-center p-5 border-b">
                     <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
-                    <div class="text-2xl" id="closeMenu">✕</div>
+                    <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
                 </div>
 
                 <!-- Mobile menu links -->
                 <div class="p-5 flex-1 overflow-y-auto">
                     <ul class="space-y-4">
-                        <li>
-                            <button class="flex items-center justify-between w-full py-2"
-                                onclick="toggle('productsMenu')">
-                                Products <svg id="productsIcon" class="w-4 h-4 transition-transform"
+                        <li class="nx-mobile-dropdown">
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
                                     viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
-                                    </path>
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            <div id="productsMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
                                 <a href="#" class="block py-1 text-gray-600 hover:text-primary">FleetSync CRM</a>
-
                             </div>
                         </li>
-                        <li>
-                            <button class="flex items-center justify-between w-full py-2"
-                                onclick="toggle('servicesMenu')">
-                                Services <svg id="servicesIcon" class="w-4 h-4 transition-transform"
+                        <li class="nx-mobile-dropdown">
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
                                     viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
-                                    </path>
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            <div id="servicesMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
                                 <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
                                 <a href="Digital-Solutions.html"
-                                    class="block py-1 text-gray-600 hover:text-primary">Digital
-                                    Solutions</a>
+                                    class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
                                 <a href="Logistics-Tech.html"
                                     class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
                             </div>
@@ -144,6 +147,8 @@
             </div>
         </div>
     </nav>
+
+
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-grey2 text-black">
         <!-- Animated Background Elements -->
@@ -771,13 +776,14 @@
     </section>
 
 
+    <!-- Footer  -->
     <footer class="bg-gray-100">
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <!-- Logo and Description Column -->
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center justify-center md:justify-start mb-4">
-                        <img src="/logo.png" alt="NEXTERIX" class="h-10">
+                        <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
                     </div>
                     <p class="text-gray-700 mb-4 text-center md:text-left">
                         Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
@@ -804,9 +810,8 @@
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Payments</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Pricing</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Global</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">FleetSync CRM</a></li>
+
                     </ul>
                 </div>
 
@@ -814,9 +819,11 @@
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">BPO</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a>
+                        </li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital
+                                Solutions</a></li>
                     </ul>
                 </div>
 
@@ -824,8 +831,8 @@
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">About</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -833,7 +840,8 @@
 
         <!-- Copyright Bar -->
         <div class="bg-red-500 text-white text-center py-4">
-            <p class="text-sm">© 2025 Nexterix, is proudly created by WebCraftio</p>
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
         </div>
     </footer>
 
@@ -924,26 +932,90 @@
             window.addEventListener('load', animateCounter);
         });
     </script>
+
     <script>
-        // Menu toggle
-        document.getElementById('menuToggle').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
 
-        document.getElementById('closeMenu').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.add('hidden');
-            document.body.style.overflow = '';
-        });
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
 
-        // Dropdown toggle
-        function toggle(id) {
-            const menu = document.getElementById(id);
-            const icon = document.getElementById(id === 'productsMenu' ? 'productsIcon' : 'servicesIcon');
-            menu.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
+                    if (!dropdownContent) return; // Skip if element not found
+
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdownContent.classList.toggle('hidden');
+                    });
+
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdownContent.addEventListener('click', function (e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
+                    });
+                });
+
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                    trigger.addEventListener('click', function () {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+            });
+        })(); // End of IIFE
     </script>
+
 </body>
 
 </html>

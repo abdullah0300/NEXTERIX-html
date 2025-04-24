@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FleetSync CRM - Next-Gen Trucking Management System</title>
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#457b9d',
+                        darkBlue: '#1d3557',
+                        lightBlue: '#a8dadc',
+                        offWhite: '#f1faee',
+                        darkGray: '#2A2A2A',
+                        navbg: '#e4dede',
+                        darkbg: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(229, 231, 235, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e63946;
+            border-radius: 4px;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #e63946 0%, #457b9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Animated background */
+        .animated-bg {
+            background: linear-gradient(-45deg, #e63946, #457b9d, #1d3557, #a8dadc);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Custom text shadow */
+        .text-shadow {
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Blurred card effect */
+        .glass-card {
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(209, 213, 219, 0.3);
+        }
+
+        /* Product card hover effect */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hero animation */
+        .hero-image {
+            transition: transform 0.7s ease;
+            transform-style: preserve-3d;
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Animated numbers */
+        .animated-number {
+            display: inline-block;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .animated-number::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #e63946;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .animated-number.visible::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-offWhite">
+    <div id="cursor"
+        class="fixed w-5 h-5 rounded-full bg-primary bg-opacity-30 pointer-events-none z-50 mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 hidden md:block">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+        <!-- Mobile burger menu -->
+        <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+    
+        <!-- Logo -->
+        <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+            <a href="/"> <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+        </div>
+    
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center">
+            <ul class="flex space-x-8">
+                <!-- Products Dropdown -->
+                <li class="relative nx-dropdown-container">
+                    <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_products">
+                        Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="nx_products_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="Fleetsync.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                    </div>
+                </li>
+    
+                <!-- Services Dropdown -->
+                <li class="relative nx-dropdown-container">
+                    <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_services">
+                        Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="nx_services_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                        <a href="Digital-Solutions.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                        <a href="Logistics-Tech.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                    </div>
+                </li>
+    
+                <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+            </ul>
+    
+            <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+        </div>
+    
+        <!-- Mobile menu - hidden by default -->
+        <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+            <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                <!-- Header with close button -->
+                <div class="flex justify-between items-center p-5 border-b">
+                    <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                </div>
+    
+                <!-- Mobile menu links -->
+                <div class="p-5 flex-1 overflow-y-auto">
+                    <ul class="space-y-4">
+                        <li class="nx-mobile-dropdown">
+                            <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">FleetSync CRM</a>
+                            </div>
+                        </li>
+                        <li class="nx-mobile-dropdown">
+                            <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                <a href="Digital-Solutions.html" class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                <a href="Logistics-Tech.html" class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                            </div>
+                        </li>
+                        <li><a href="About.html" class="block py-2">About Us</a></li>
+                        <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Mobile CTA -->
+                <div class="p-5 border-t">
+                    <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                        class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-r from-darkBlue to-secondary opacity-5 z-0"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-secondary opacity-5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 py-20 md:py-28 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12" data-aos="fade-right" data-aos-duration="1000">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-primary bg-opacity-10 text-primary font-medium text-sm mb-6">
+                        #1 Trucking Management Solution
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-darkBlue leading-tight">
+                        <span class="gradient-text text-shadow">FleetSync CRM</span> <span class="block">Intelligent
+                            Trucking Management</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        The comprehensive SaaS solution that revolutionizes how trucking companies manage their fleets,
+                        drivers, and operations. Streamline workflows, boost efficiency, and make data-driven decisions
+                        with our powerful all-in-one platform.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#demo"
+                            class="px-8 py-3 bg-primary text-white font-medium rounded-lg hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl text-center">
+                            Book a Demo
+                        </a>
+                        <a href="#features"
+                            class="px-8 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors text-center">
+                            Explore Features
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="relative hero-image">
+                        <img src="/dashboard.jpg" alt="FleetSync CRM Dashboard"
+                            class="w-full rounded-xl shadow-2xl">
+                        <!-- Floating Elements -->
+                        <div
+                            class="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-lg shadow-lg transform rotate-12 animate-float">
+                            <div class="w-full h-full flex items-center justify-center text-white text-3xl font-bold">
+                                26
+                            </div>
+                            <div class="absolute bottom-2 inset-x-0 text-center text-white text-xs font-medium">Drivers
+                            </div>
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-4 w-28 h-28 bg-lightBlue rounded-lg shadow-lg transform -rotate-6 animate-float animation-delay-200">
+                            <div
+                                class="w-full h-full flex items-center justify-center text-darkBlue text-3xl font-bold">
+                                78.5%
+                            </div>
+                            <div class="absolute bottom-2 inset-x-0 text-center text-darkBlue text-xs font-medium">
+                                Completion Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-20 relative overflow-hidden">
+        <!-- Background decorations -->
+        <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-50 to-transparent"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-secondary bg-opacity-10 text-secondary font-medium text-sm mb-4">
+                    Powerful Capabilities
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">One Platform, Complete Fleet Management
+                </h2>
+                <p class="text-lg text-gray-600">
+                    FleetSync CRM brings together everything you need to manage your trucking operations efficiently
+                    with powerful tools for managers and drivers.
+                </p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Comprehensive Truck Management</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Complete truck profiles with VIN, model, license, trailer type</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Maintenance tracking with smart mileage alerts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Customizable truck specifications</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Driver Management & Assignment</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Comprehensive driver profiles with secure authentication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Main and co-driver assignment capabilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Automated unique driver ID generation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+
+                <!-- Feature 3 (continued) -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-darkBlue bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-darkBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Pre-Trip Form Management</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Customizable pre-trip inspection forms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Support for comments and file uploads</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Automated issue flagging for manager review</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-darkBlue font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Comprehensive Reporting</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Real-time dashboard with fleet status</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Detailed pre-trip inspection history</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Driver daily logs with downloadable reports</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Smart Mileage Notifications</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Automated mileage tracking and accumulation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Customizable mileage limits per truck</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-secondary mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Instant notifications to both managers and drivers</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 product-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-darkBlue bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-darkBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-darkBlue">Mobile Driver App</h3>
+                    <ul class="space-y-3 text-gray-600 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Secure driver login with unique ID</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Streamlined pre-trip inspection process</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-darkBlue mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Daily log submission with time allocation tracking</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-darkBlue font-medium hover:underline group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Showcase Section -->
+    <section class="py-20 bg-darkbg from-darkBlue to-secondary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary to-transparent opacity-20"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12" data-aos="fade-right" data-aos-duration="1000">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-white bg-opacity-20 text-white font-medium text-sm mb-6">
+                        Driver Mobile App
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                        Empower Your Drivers with Our <span class="text-primary">Mobile Application</span>
+                    </h2>
+                    <p class="text-lg text-gray-100 mb-8">
+                        Our intuitive mobile app streamlines daily driver tasks, ensuring compliance and efficiency.
+                        Drivers can perform pre-trip inspections, submit daily logs, and receive important notifications
+                        all from their smartphone.
+                    </p>
+
+                    <div class="space-y-6 mb-8">
+                        <!-- Feature 1 -->
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-10 rounded-full p-3 mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Simplified Login</h3>
+                                <p class="text-gray-200">Drivers securely access the app with their unique ID, generated
+                                    when they're assigned to a truck.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-10 rounded-full p-3 mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Pre-Trip Checklists</h3>
+                                <p class="text-gray-200">Complete customizable truck-specific inspection forms with
+                                    support for comments and file uploads.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-10 rounded-full p-3 mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Daily Logs</h3>
+                                <p class="text-gray-200">Track mileage and duty status with our intuitive time logging
+                                    system, breaking down Off-duty, Sleeper Berth, Driving, and On-duty hours.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors">
+                            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.6,12a5.3,5.3,0,0,1,2.9-4.2A5.9,5.9,0,0,0,16,6.5,5.4,5.4,0,0,0,12.2,7.8,4.4,4.4,0,0,0,9.9,6.5a5.3,5.3,0,0,0-4.4,2.3c-1.2,1.8-1,5.2,1.8,9,1.2,1.5,2.7,3.2,4.5,3.2s2.5-1,4.7-1,2.8,1,4.5,1,3.5-2,4.7-3.5a12,12,0,0,0,1.6-3.2A4.9,4.9,0,0,1,17.6,12Z">
+                                </path>
+                                <path
+                                    d="M14.1,4C14.9,3,15.9,2.4,16.6,2.4S18.4,3,19.1,4.1C18.3,5,17.2,5.7,16.3,5.7S14.5,5,14.1,4Z">
+                                </path>
+                            </svg>
+                            <div>
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-semibold -mt-1">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors">
+                            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3,20.5v-17C3,2.7,3.7,2,4.5,2H20c0.8,0,1.5,0.7,1.5,1.5v17c0,0.8-0.7,1.5-1.5,1.5H4.5C3.7,22,3,21.3,3,20.5z M12,17l4.2-2.9c0.3-0.2,0.3-0.7,0-0.9L12,10.2l0,0l-3.6-2.5c-0.3-0.2-0.7,0-0.7,0.3v11c0,0.3,0.4,0.5,0.7,0.3L12,17z">
+                                </path>
+                            </svg>
+                            <div>
+                                <div class="text-xs">GET IT ON</div>
+                                <div class="font-semibold -mt-1">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center" data-aos="fade-left" data-aos-duration="1000"
+                    data-aos-delay="300">
+                    <div class="relative w-[280px] h-[560px]">
+                        <!-- Phone Frame -->
+                        <div class="absolute inset-0 border-8 border-darkBlue rounded-[40px] z-20 shadow-2xl"></div>
+
+                        <!-- Screenshot -->
+                        <img src="/mobile app.png" alt="FleetSync Mobile App"
+                            class="absolute inset-0 z-10 rounded-[40px] object-cover">
+
+                        <!-- Floating Stats -->
+                        <div
+                            class="absolute -right-16 top-12 bg-primary text-white rounded-lg shadow-lg py-3 px-4 transform rotate-6 animate-float">
+                            <div class="font-bold text-xl">#200330029</div>
+                            <div class="text-xs opacity-80">Truck Number</div>
+                        </div>
+
+                        <div class="absolute -left-12 top-1/3 bg-white rounded-lg shadow-lg py-3 px-4 transform -rotate-6 animate-float"
+                            style="animation-delay: 0.5s;">
+                            <div class="font-bold text-darkBlue">PreTrip ✓</div>
+                            <div class="text-xs text-gray-500">Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Showcase Section -->
+    <section class="py-20 bg-offWhite relative overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary opacity-5 rounded-full"></div>
+
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-darkBlue bg-opacity-10 text-darkBlue font-medium text-sm mb-4">
+                    Manager Dashboard
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Powerful Tools for Fleet Managers</h2>
+                <p class="text-lg text-gray-600">
+                    Our web-based dashboard gives fleet managers complete visibility and control over their trucking
+                    operations, from truck management to driver assignments and comprehensive reporting.
+                </p>
+            </div>
+
+            <div class="relative rounded-xl shadow-2xl overflow-hidden" data-aos="zoom-in" data-aos-duration="1200">
+                <img src="/dashboard.jpg" alt="FleetSync CRM Dashboard" class="w-full">
+
+                <!-- Stats Overlays -->
+                <div
+                    class="absolute top-12 left-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-4 transform -rotate-2 animate-float">
+                    <div class="text-2xl font-bold text-darkBlue">26</div>
+                    <div class="text-sm text-gray-600">Active Drivers</div>
+                </div>
+
+                <div class="absolute bottom-12 right-12 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-4 transform rotate-2 animate-float"
+                    style="animation-delay: 0.7s;">
+                    <div class="text-2xl font-bold text-primary">78.5%</div>
+                    <div class="text-sm text-gray-600">Daily Report Submission</div>
+                </div>
+
+                <div class="absolute top-1/2 left-1/3 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-lg p-4 transform -rotate-1 animate-float"
+                    style="animation-delay: 0.3s;">
+                    <div class="text-2xl font-bold text-secondary">6</div>
+                    <div class="text-sm text-gray-600">Companies</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <!-- Dashboard Feature 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                            <path fill-rule="evenodd"
+                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-darkBlue">Real-Time Monitoring</h3>
+                    <p class="text-gray-600">Track your entire fleet operation with real-time updates on truck status,
+                        driver activities, and completed inspections.</p>
+                </div>
+
+                <!-- Dashboard Feature 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div
+                        class="w-12 h-12 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-darkBlue">Advanced Analytics</h3>
+                    <p class="text-gray-600">Generate detailed reports and analytics to optimize routes, track
+                        maintenance, and make data-driven business decisions.</p>
+                </div>
+
+                <!-- Dashboard Feature 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="w-12 h-12 bg-darkBlue bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-darkBlue" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-darkBlue">Customizable Settings</h3>
+                    <p class="text-gray-600">Tailor the dashboard and mobile app to your specific business needs with
+                        custom forms, fields, and user permissions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-primary bg-opacity-10 text-primary font-medium text-sm mb-4">
+                    Simplified Workflow
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">How FleetSync CRM Works</h2>
+                <p class="text-lg text-gray-600">
+                    Our platform connects managers and drivers with a seamless workflow that ensures compliance and
+                    operational efficiency.
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Connection Line -->
+                <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 transform -translate-y-1/2 hidden md:block">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="absolute top-0 left-1/2 w-12 h-12 bg-primary rounded-full text-white flex items-center justify-center font-bold text-xl transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-10">
+                            1</div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 pt-12 md:pt-16 text-center">
+                            <h3 class="text-xl font-bold mb-4 text-darkBlue">Manager Setup</h3>
+                            <p class="text-gray-600">Managers create truck profiles and driver accounts, then assign
+                                drivers to specific vehicles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="absolute top-0 left-1/2 w-12 h-12 bg-primary rounded-full text-white flex items-center justify-center font-bold text-xl transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-10">
+                            2</div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 pt-12 md:pt-16 text-center">
+                            <h3 class="text-xl font-bold mb-4 text-darkBlue">Driver Login</h3>
+                            <p class="text-gray-600">Drivers access the mobile app using their unique ID to start their
+                                daily operations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="absolute top-0 left-1/2 w-12 h-12 bg-primary rounded-full text-white flex items-center justify-center font-bold text-xl transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-10">
+                            3</div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 pt-12 md:pt-16 text-center">
+                            <h3 class="text-xl font-bold mb-4 text-darkBlue">Daily Operations</h3>
+                            <p class="text-gray-600">Drivers complete pre-trip inspections and submit daily logs with
+                                time and mileage details.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="400">
+                        <div
+                            class="absolute top-0 left-1/2 w-12 h-12 bg-primary rounded-full text-white flex items-center justify-center font-bold text-xl transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 z-10">
+                            4</div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 pt-12 md:pt-16 text-center">
+                            <h3 class="text-xl font-bold mb-4 text-darkBlue">Management & Analytics</h3>
+                            <p class="text-gray-600">Managers review data, receive notifications, and generate reports
+                                for operational improvements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-secondary bg-opacity-10 text-secondary font-medium text-sm mb-4">
+                    Customer Success
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Trusted by Trucking Companies</h2>
+                <p class="text-lg text-gray-600">
+                    See how FleetSync CRM has transformed operations for trucking companies of all sizes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"FleetSync CRM has completely transformed how we manage our fleet. The
+                        pre-trip inspection forms and mileage notifications have reduced our maintenance issues by 78%
+                        in just three months."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="/api/placeholder/100/100" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-darkBlue">Robert Johnson</p>
+                            <p class="text-sm text-gray-500">Fleet Manager, TransCargo Inc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The mobile app for our drivers has streamlined our daily operations
+                        completely. My drivers love how easy it is to complete pre-trip forms and log their hours. The
+                        notifications ensure we never miss important maintenance."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="/api/placeholder/100/100" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-darkBlue">Sarah Martinez</p>
+                            <p class="text-sm text-gray-500">Operations Director, FastFreight Logistics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"As a small fleet owner, I was hesitant about investing in new
+                        software, but FleetSync CRM paid for itself within the first month. The reporting features alone
+                        have saved us countless hours of administrative work."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="/api/placeholder/100/100" alt="Customer" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-bold text-darkBlue">Michael Chen</p>
+                                <p class="text-sm text-gray-500">Owner, Chen Transportation LLC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
+            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary opacity-5 rounded-full"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block px-4 py-1 rounded-full bg-darkBlue bg-opacity-10 text-darkBlue font-medium text-sm mb-4">
+                        Flexible Pricing
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Plans That Grow With Your Business</h2>
+                    <p class="text-lg text-gray-600">
+                        Choose the perfect plan for your fleet size and business needs. All plans include our core features with scaling capabilities.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Starter Plan -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-darkBlue bg-opacity-5 p-6">
+                            <h3 class="text-xl font-bold text-darkBlue">Starter Fleet</h3>
+                            <p class="text-gray-600 mt-2">Perfect for small trucking operations</p>
+                            <div class="mt-4">
+                                <span class="text-4xl font-bold text-darkBlue">$199</span>
+                                <span class="text-gray-500">/month</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Up to 10 trucks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Up to 20 driver accounts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Basic reporting</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Email support</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-darkBlue hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Get Started</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Plan -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden relative transform scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                        <div class="bg-primary bg-opacity-10 p-6">
+                            <h3 class="text-xl font-bold text-primary">Professional Fleet</h3>
+                            <p class="text-gray-600 mt-2">Ideal for growing trucking companies</p>
+                            <div class="mt-4">
+                                <span class="text-4xl font-bold text-primary">$399</span>
+                                <span class="text-gray-500">/month</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Up to 50 trucks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Unlimited driver accounts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Advanced analytics & reporting</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Priority email & phone support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Custom pre-trip forms</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-primary hover:bg-red-700 text-white font-medium rounded-lg transition-colors">Get Started</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Enterprise Plan -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-secondary bg-opacity-10 p-6">
+                            <h3 class="text-xl font-bold text-secondary">Enterprise Fleet</h3>
+                            <p class="text-gray-600 mt-2">For large trucking operations</p>
+                            <div class="mt-4">
+                                <span class="text-4xl font-bold text-secondary">Custom</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Unlimited trucks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Unlimited driver accounts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Full enterprise reporting suite</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">24/7 dedicated support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Custom integrations</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-secondary hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section with animation -->
+    <section id="contact-form" class="py-20  bg-darkbg text-white relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute top-20 right-10 w-64 h-64 bg-primary opacity-10 rounded-full blur-xl"></div>
+            <div class="absolute bottom-10 left-10 w-80 h-80 bg-blue-500 opacity-10 rounded-full blur-xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="text-4xl font-bold mb-6">Ready to Transform Your <span class="text-primary">Business
+                            Operations?</span></h2>
+                    <p class="text-xl text-gray-300 mb-8">Get in touch with our team to discuss how our solutions
+                        can help your business grow, reduce costs, and improve efficiency.</p>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                                        clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                                <p class="text-gray-300">Our team typically responds within 2 hours during business
+                                    hours.</p>
+                                <a href="mailto:info@nexterix.com"
+                                    class="text-primary hover:underline mt-1 block">info@nexterix.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                                <p class="text-gray-300">Speak directly with a consultant who can answer your
+                                    questions.</p>
+                                <a href="tel:+1-800-123-4567" class="text-primary hover:underline mt-1 block">+1 (800)
+                                    123-4567</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Schedule a Consultation</h3>
+                                <p class="text-gray-300">Book a 30-minute call with one of our specialists to
+                                    discuss your needs.</p>
+                                <a href="#" class="text-primary hover:underline mt-1 block">Book your free
+                                    consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Get Your Free Consultation</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First
+                                        Name</label>
+                                    <input type="text" id="firstName" name="firstName"
+                                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                        placeholder="John">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last
+                                        Name</label>
+                                    <input type="text" id="lastName" name="lastName"
+                                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                        placeholder="Doe">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Work
+                                    Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                    placeholder="john.doe@company.com">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone
+                                    Number</label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                    placeholder="+1 (123) 456-7890">
+                            </div>
+
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company
+                                    Name</label>
+                                <input type="text" id="company" name="company"
+                                    class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                    placeholder="ACME Inc.">
+                            </div>
+
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-300 mb-2">Service
+                                    Interest</label>
+                                <select id="service" name="service"
+                                    class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white">
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="customer-support">Customer Support</option>
+                                    <option value="back-office">Back Office Operations</option>
+                                    <option value="sales">Sales & Lead Generation</option>
+                                    <option value="technical-support">Technical Support</option>
+                                    <option value="content-moderation">Content Moderation</option>
+                                    <option value="virtual-assistants">Virtual Assistants</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Tell us about
+                                    your needs</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white"
+                                    placeholder="Please share details about your project and requirements..."></textarea>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="terms" name="terms" type="checkbox"
+                                        class="focus:ring-primary h-4 w-4 text-primary border-gray-600 rounded">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="terms" class="text-gray-300">I agree to the <a href="#"
+                                            class="text-primary hover:underline">Terms of Service</a> and <a href="#"
+                                            class="text-primary hover:underline">Privacy Policy</a></label>
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full px-8 py-4 bg-primary text-white font-medium rounded-lg hover:bg-red-700 transition-colors">Schedule
+                                Your Free Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+         <!-- Footer  -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">FleetSync CRM</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a>
+                        </li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital
+                                Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+        
+      
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            // Initialize AOS animations
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true,
+                offset: 120
+            });
+            
+            // Navbar dropdown functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                // Mobile menu toggle
+                const menuToggle = document.getElementById('nx_menuToggle');
+                const closeMenu = document.getElementById('nx_closeMenu');
+                const mobileMenu = document.getElementById('nx_mobileMenu');
+        
+                if (menuToggle && closeMenu && mobileMenu) {
+                    // Open mobile menu
+                    menuToggle.addEventListener('click', function() {
+                        mobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+                    
+                    // Close mobile menu
+                    closeMenu.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+                
+                // Desktop dropdown toggles
+                const dropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+                
+                dropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdown = document.getElementById(dropdownId + '_dropdown');
+                    
+                    if (!dropdown) return; // Skip if element not found
+                    
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
+                        
+                        // Close all other dropdowns
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('hidden');
+                    });
+                    
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdown.addEventListener('click', function(e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
+                    });
+                });
+                
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function() {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+                
+                // Mobile dropdown toggles
+                const mobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+                
+                mobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+                    
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+                    
+                    trigger.addEventListener('click', function() {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+                
+                // FAQ toggle functionality
+                window.toggleFAQ = function(button) {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('svg');
+                    
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                };
+                
+                // Back to top button functionality
+                const backToTopButton = document.getElementById('backToTop');
+                
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 500) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Animated numbers
+                const animatedNumbers = document.querySelectorAll('.animated-number');
+                
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+                
+                const observer = new IntersectionObserver(observerCallback, {
+                    threshold: 0.5
+                });
+                
+                animatedNumbers.forEach(number => {
+                    observer.observe(number);
+                });
+                
+                // Custom cursor functionality (for desktop only)
+                if (window.matchMedia("(min-width: 768px)").matches) {
+                    const cursor = document.getElementById('cursor');
+                    const links = document.querySelectorAll('a, button, .interactive');
+                    
+                    document.addEventListener('mousemove', function(e) {
+                        cursor.style.left = e.clientX + 'px';
+                        cursor.style.top = e.clientY + 'px';
+                    });
+                    
+                    document.addEventListener('mousedown', function() {
+                        cursor.classList.add('scale-75');
+                    });
+                    
+                    document.addEventListener('mouseup', function() {
+                        cursor.classList.remove('scale-75');
+                    });
+                    
+                    links.forEach(link => {
+                        link.addEventListener('mouseenter', function() {
+                            cursor.classList.add('scale-150', 'bg-opacity-50');
+                        });
+                        
+                        link.addEventListener('mouseleave', function() {
+                            cursor.classList.remove('scale-150', 'bg-opacity-50');
+                        });
+                    });
+                }
+            });
+            
+            // GSAP animations
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    // Parallax effect for hero section
+                    gsap.to('.hero-image', {
+                        y: 50,
+                        scrollTrigger: {
+                            trigger: '.hero-image',
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    });
+                    
+                    // Animate stats counting up
+                    const stats = document.querySelectorAll('.animated-number');
+                    
+                    stats.forEach(stat => {
+                        const targetValue = parseInt(stat.textContent);
+                        
+                        gsap.fromTo(
+                            stat,
+                            { textContent: 0 },
+                            {
+                                textContent: targetValue,
+                                duration: 2,
+                                ease: 'power1.inOut',
+                                scrollTrigger: {
+                                    trigger: stat,
+                                    start: 'top 80%',
+                                    toggleActions: 'play none none none'
+                                },
+                                onUpdate: function() {
+                                    stat.textContent = Math.ceil(this.targets()[0].textContent);
+                                }
+                            }
+                        );
+                    });
+                }
+            });
+        </script>
+        </body>
+        </html>
