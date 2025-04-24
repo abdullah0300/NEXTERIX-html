@@ -23,8 +23,8 @@
                         navbg: '#e4dede',
                         lightgray: '#f5f3f3',
                         darkbg: '#263238',
-                        grey2:'#F5F5F5',
-                        herobpo:'#D9D9D9',
+                        grey2: '#F5F5F5',
+                        herobpo: '#D9D9D9',
                     }
                 }
             }
@@ -36,75 +36,113 @@
 
 <body class="font-sans">
     <div id="cursor" class="custom-cursor hidden md:block"></div>
-    <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm" data-aos="fade-down"
-            data-aos-duration="600">
-            <!-- Left - Burger menu on mobile -->
-            <div class="block md:hidden cursor-pointer text-2xl interactive order-1" id="menuToggle">☰</div>
-            
-            <!-- Center - Logo for all screens -->
-            <div class="font-bold text-2xl text-gray-800 mx-auto md:mx-0 order-2 md:order-1 interactive">
-                <!-- Replace text with logo image -->
-                <img src="/logo.png" alt="NEXTERIX" class="h-10 md:h-12">
-            </div>
 
-            <!-- Right - Navigation menu -->
-            <div class="hidden md:flex flex-col md:flex-row md:ml-auto order-3 md:order-2" id="navContainer">
-                <ul class="flex flex-col md:flex-row list-none w-full md:w-auto">
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Products</a>
-                    </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Services</a>
-                    </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">About
-                            Us</a>
-                    </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Contact
-                            Us</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- navbar  -->
 
-            <!-- Call to action button -->
-            <div class="md:ml-8 mt-0 order-3 hidden md:block" id="navRight">
-                <a href="#"
-                    class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition-colors btn-hover interactive">Let's
-                    Talk</a>
-            </div>
-            
-            <!-- Mobile menu container - hidden by default -->
-            <div class="fixed inset-0 bg-white z-50 p-5 flex-col justify-start items-center hidden" id="mobileMenu">
-                <div class="flex justify-between items-center w-full mb-10">
-                    <div class="text-2xl cursor-pointer" id="closeMenu">✕</div>
+    <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+        <!-- Mobile burger menu -->
+        <div class="block md:hidden cursor-pointer text-2xl" id="menuToggle">☰</div>
+
+        <!-- Logo -->
+        <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+            <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10">
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center">
+            <ul class="flex space-x-8">
+                <!-- Products Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="flex items-center text-gray-800 hover:text-primary">
+                        Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
+                        <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                    </div>
+                </li>
+
+                <!-- Services Dropdown -->
+                <li class="relative group">
+                    <a href="Services.html" class="flex items-center text-gray-800 hover:text-primary">
+                        Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
+                        <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                        <a href="Digital-Solutions.html"
+                            class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                        <a href="Logistics-Tech.html"
+                            class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                    </div>
+                </li>
+
+                <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+            </ul>
+
+            <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+        </div>
+
+        <!-- Mobile menu - hidden by default -->
+        <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="mobileMenu">
+            <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                <!-- Header with close button -->
+                <div class="flex justify-between items-center p-5 border-b">
                     <img src="/logo.png" alt="NEXTERIX" class="h-10">
+                    <div class="text-2xl" id="closeMenu">✕</div>
                 </div>
-                
-                <ul class="flex flex-col list-none w-full text-center space-y-6">
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Products</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Services</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Contact Us</a>
-                    </li>
-                </ul>
-                
-                <div class="mt-10">
-                    <a href="#" class="bg-primary text-white px-6 py-3 rounded-full text-base hover:bg-red-700 transition-colors btn-hover">Let's Talk</a>
+
+                <!-- Mobile menu links -->
+                <div class="p-5 flex-1 overflow-y-auto">
+                    <ul class="space-y-4">
+                        <li>
+                            <button class="flex items-center justify-between w-full py-2"
+                                onclick="toggle('productsMenu')">
+                                Products <svg id="productsIcon" class="w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div id="productsMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 1</a>
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 2</a>
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 3</a>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="flex items-center justify-between w-full py-2"
+                                onclick="toggle('servicesMenu')">
+                                Services <svg id="servicesIcon" class="w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div id="servicesMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">Digital
+                                    Solutions</a>
+                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                            </div>
+                        </li>
+                        <li><a href="#" class="block py-2">About Us</a></li>
+                        <li><a href="#" class="block py-2">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mobile CTA -->
+                <div class="p-5 border-t">
+                    <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                        class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-grey2 text-black">
         <!-- Animated Background Elements -->
@@ -133,9 +171,8 @@
                 </div>
                 <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                     <div class="relative z-10 float-animation">
-                        <img src="/Call center-amico.svg" alt="BPO Services Illustration"
-                            class="rounded-lg  mx-auto">
-                     </div>
+                        <img src="/Call center-amico.svg" alt="BPO Services Illustration" class="rounded-lg  mx-auto">
+                    </div>
                 </div>
             </div>
 
@@ -748,18 +785,20 @@
                     <div class="flex space-x-3 mt-4 justify-center md:justify-start">
                         <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
                             </svg>
                         </a>
                         <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z"/>
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
                             </svg>
                         </a>
-                       
+
                     </div>
                 </div>
-    
+
                 <!-- Products Column -->
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
@@ -769,7 +808,7 @@
                         <li><a href="#" class="text-gray-700 hover:text-gray-900">Global</a></li>
                     </ul>
                 </div>
-    
+
                 <!-- Services Column -->
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
@@ -779,23 +818,23 @@
                         <li><a href="#" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
                     </ul>
                 </div>
-    
-<!-- About Column -->
-<div class="col-span-1">
-    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
-    <ul class="space-y-2 text-center md:text-left">
-        <li><a href="#" class="text-gray-700 hover:text-gray-900">About</a></li>
-        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
-    </ul>
-</div>
-</div>
-</div>
 
-<!-- Copyright Bar -->
-<div class="bg-red-500 text-white text-center py-4">
-<p class="text-sm">© 2025 Nexterix, is proudly created by WebCraftio</p>
-</div>
-</footer>
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly created by WebCraftio</p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
@@ -883,6 +922,26 @@
             window.addEventListener('scroll', animateCounter);
             window.addEventListener('load', animateCounter);
         });
+    </script>
+    <script>
+        // Menu toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('closeMenu').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Dropdown toggle
+        function toggle(id) {
+            const menu = document.getElementById(id);
+            const icon = document.getElementById(id === 'productsMenu' ? 'productsIcon' : 'servicesIcon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
     </script>
 </body>
 

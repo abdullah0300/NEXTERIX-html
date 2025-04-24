@@ -29,80 +29,116 @@
             }
         }
     </script>
-    
+
 </head>
 
 <body class="font-sans">
     <div id="cursor" class="custom-cursor hidden md:block"></div>
 
     <div class="w-full overflow-hidden">
-        <!-- Navbar - Restructured for responsive design -->
-        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm" data-aos="fade-down"
-            data-aos-duration="600">
-            <!-- Left - Burger menu on mobile -->
-            <div class="block md:hidden cursor-pointer text-2xl interactive order-1" id="menuToggle">☰</div>
-            
-            <!-- Center - Logo for all screens -->
-            <div class="font-bold text-2xl text-gray-800 mx-auto md:mx-0 order-2 md:order-1 interactive">
-                <!-- Replace text with logo image -->
-                <img src="/logo.png" alt="NEXTERIX" class="h-10 md:h-12">
+        <!-- Navbar  -->
+
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="menuToggle">☰</div>
+
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10">
             </div>
 
-            <!-- Right - Navigation menu -->
-            <div class="hidden md:flex flex-col md:flex-row md:ml-auto order-3 md:order-2" id="navContainer">
-                <ul class="flex flex-col md:flex-row list-none w-full md:w-auto">
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Products</a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative group">
+                        <a href="#" class="flex items-center text-gray-800 hover:text-primary">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
+                            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                        </div>
                     </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Services</a>
+
+                    <!-- Services Dropdown -->
+                    <li class="relative group">
+                        <a href="Services.html" class="flex items-center text-gray-800 hover:text-primary">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg invisible group-hover:visible">
+                            <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        </div>
                     </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">About
-                            Us</a>
-                    </li>
-                    <li class="mb-2 md:mb-0 md:ml-8 text-center md:text-left">
-                        <a href="#"
-                            class="no-underline text-gray-800 text-sm hover:text-primary transition-colors navigation-item interactive">Contact
-                            Us</a>
-                    </li>
+
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
                 </ul>
+
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
             </div>
 
-            <!-- Call to action button -->
-            <div class="md:ml-8 mt-0 order-3 hidden md:block" id="navRight">
-                <a href="#"
-                    class="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition-colors btn-hover interactive">Let's
-                    Talk</a>
-            </div>
-            
-            <!-- Mobile menu container - hidden by default -->
-            <div class="fixed inset-0 bg-navbg z-50 p-5 flex-col justify-start items-center hidden" id="mobileMenu">
-                <div class="flex justify-between items-center w-full mb-10">
-                    <div class="text-2xl cursor-pointer" id="closeMenu">✕</div>
-                    <img src="/logo.png" alt="NEXTERIX" class="h-10">
-                </div>
-                
-                <ul class="flex flex-col list-none  w-full text-center bg-navbg space-y-6">
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Products</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Services</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-lg text-gray-800 hover:text-primary">Contact Us</a>
-                    </li>
-                </ul>
-                
-                <div class="mt-10">
-                    <a href="#" class="bg-primary text-white px-6 py-3 rounded-full text-base hover:bg-red-700 transition-colors btn-hover">Let's Talk</a>
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <img src="/logo.png" alt="NEXTERIX" class="h-10">
+                        <div class="text-2xl" id="closeMenu">✕</div>
+                    </div>
+
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li>
+                                <button class="flex items-center justify-between w-full py-2"
+                                    onclick="toggle('productsMenu')">
+                                    Products <svg id="productsIcon" class="w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div id="productsMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 1</a>
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 2</a>
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">Product 3</a>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="flex items-center justify-between w-full py-2"
+                                    onclick="toggle('servicesMenu')">
+                                    Services <svg id="servicesIcon" class="w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div id="servicesMenu" class="hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">Digital
+                                        Solutions</a>
+                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                </div>
+                            </li>
+                            <li><a href="#" class="block py-2">About Us</a></li>
+                            <li><a href="#" class="block py-2">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile CTA -->
+                    <div class="p-5 border-t">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -124,7 +160,7 @@
                     <input type="email" placeholder="Your Email.."
                         class="w-full py-4 px-5 border-0 rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg bg-lightgray text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                     <button
-                        class="w-full sm:w-auto bg-primary text-white  px-10 font-small rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg hover:bg-red-700 transition-colors">Let's
+                        class="bg-primary text-white  px-6 py-2 whitespace-nowrap font-medium rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg hover:bg-red-700 transition-colors">Let's
                         Talk</button>
                 </div>
             </div>
@@ -153,125 +189,174 @@
         <section id="services" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-4" data-aos="fade-up"> <span class="text-primary">NEXTERIX</span></h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">We deliver smart BPO services, cutting-edge digital solutions, and advanced logistics tech — all under one roof. From startups to enterprises, we help businesses scale with the right tools, teams, and technology.
+                    <h2 class="text-4xl font-bold mb-4" data-aos="fade-up"> <span class="text-primary">NEXTERIX</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">We
+                        deliver smart BPO services, cutting-edge digital solutions, and advanced logistics tech — all
+                        under one roof. From startups to enterprises, we help businesses scale with the right tools,
+                        teams, and technology.
 
                     </p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Service Card 1 -->
-                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
-                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                                </path>
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">BPO</h3>
-                        <p class="text-white mb-6">We provide expert customer support, sales teams, and back-office solutions to help businesses reduce costs and scale efficiently.</p>
+                        <p class="text-white mb-6">We provide expert customer support, sales teams, and back-office
+                            solutions to help businesses reduce costs and scale efficiently.</p>
                         <ul class="text-white mb-6 space-y-2">
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Customer Support
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Virtual Assistants
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Sales & Lead Generation
                             </li>
                         </ul>
-                        <a href="BPO.html" class="inline-flex items-center text-primary font-medium hover:underline group">
-                            Learn more 
-                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        <a href="BPO.html"
+                            class="inline-flex items-center text-primary font-medium hover:underline group">
+                            Learn more
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                         </a>
                     </div>
-                    
+
                     <!-- Service Card 2 -->
-                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
-                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Digital Solution </h3>
-                        <p class="text-white mb-6">From custom websites to eCommerce stores and branding, we craft tailored digital experiences that drive growth.</p>
+                        <p class="text-white mb-6">From custom websites to eCommerce stores and branding, we craft
+                            tailored digital experiences that drive growth.</p>
                         <ul class="text-white mb-6 space-y-2">
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Website development & maintenance
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 E-commerce integration & automation
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 CRM setup & workflow optimization
                             </li>
                         </ul>
-                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline group">
-                            Learn more 
-                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        <a href="Digital-Solutions.html"
+                            class="inline-flex items-center text-primary font-medium hover:underline group">
+                            Learn more
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                         </a>
                     </div>
-                    
+
                     <!-- Service Card 3 -->
-                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-2">
-                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                    <div class="bg-darkbg2 text-white rounded-xl shadow-xl p-8 card-hover" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-2">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z">
+                                </path>
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Logistics Tech</h3>
-                        <p class="text-white mb-6">We offer TMS systems, and workflow automation for trucking companies and dispatchers to streamline their operations.</p>
+                        <p class="text-white mb-6">We offer TMS systems, and workflow automation for trucking companies
+                            and dispatchers to streamline their operations.</p>
                         <ul class="text-white mb-6 space-y-2">
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Fleet tracking & route optimization
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Warehouse management system
                             </li>
                             <li class="flex items-center">
                                 <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                                 Shipment monitoring & real-time updates
                             </li>
                         </ul>
                         <a href="#" class="inline-flex items-center text-primary font-medium hover:underline group">
-                            Learn more 
-                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            Learn more
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                         </a>
                     </div>
-                                            
+
                 </div>
             </div>
         </section>
@@ -297,8 +382,7 @@
                     <!-- Right Content -->
                     <div class="lg:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                         <div class="relative floating">
-                            <img src="/Group 1000003109.png" alt="Desktop with laptop"
-                                class="w-full rounded-lg ">
+                            <img src="/Group 1000003109.png" alt="Desktop with laptop" class="w-full rounded-lg ">
 
                             <!-- Decorative Elements -->
                             <div class="absolute -top-5 -left-5 w-12 h-12 bg-primary opacity-20 rounded-full"></div>
@@ -311,27 +395,33 @@
         </section>
 
         <!-- Image section - Modified to show only center image on mobile -->
-        <section class="relative w-full max-w-6xl mx-auto py-12 px-4 flex justify-center overflow-hidden" id="animated-section">
+        <section class="relative w-full max-w-6xl mx-auto py-12 px-4 flex justify-center overflow-hidden"
+            id="animated-section">
             <div class="relative w-full flex justify-center items-center h-64">
                 <!-- Center image (always visible) -->
                 <div class="absolute w-[85%] md:w-[40rem] rounded-lg shadow-xl z-30 overflow-hidden">
                     <img src="/section.png" alt="Center Image" class="w-full h-full object-cover">
                 </div>
-                
+
                 <!-- Side images (hidden on mobile) -->
-                <div class="absolute left-1/2 animated-image delay-100 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem] hidden md:block" style="--final-x: -26rem;">
+                <div class="absolute left-1/2 animated-image delay-100 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem] hidden md:block"
+                    style="--final-x: -26rem;">
                     <img src="/Untitled design (12).png" alt="Second Left Image" class="w-full h-full object-cover">
                 </div>
-                
-                <div class="absolute left-1/2 animated-image delay-200 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem] hidden md:block" style="--final-x: -32rem;">
+
+                <div class="absolute left-1/2 animated-image delay-200 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem] hidden md:block"
+                    style="--final-x: -32rem;">
                     <img src="/Untitled design (13).png" alt="Leftmost Image" class="w-full h-full object-cover">
                 </div>
-                
-                <div class="absolute left-1/2 animated-image delay-300 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem] hidden md:block" style="--final-x: 14rem;">
-                    <img src="/Untitled design (10) (1).png" alt="Second Right Image" class="w-full h-full object-cover">
+
+                <div class="absolute left-1/2 animated-image delay-300 z-20 overflow-hidden rounded-lg shadow-lg w-48 h-[18rem] hidden md:block"
+                    style="--final-x: 14rem;">
+                    <img src="/Untitled design (10) (1).png" alt="Second Right Image"
+                        class="w-full h-full object-cover">
                 </div>
-                
-                <div class="absolute left-1/2 animated-image delay-400 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem] hidden md:block" style="--final-x: 20rem;">
+
+                <div class="absolute left-1/2 animated-image delay-400 z-10 overflow-hidden rounded-lg shadow-lg w-48 h-[14rem] hidden md:block"
+                    style="--final-x: 20rem;">
                     <img src="/Untitled design (11).png" alt="Rightmost Image" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -375,7 +465,7 @@
                     <p class="text-yellow-400 uppercase text-sm font-medium tracking-wider mb-2">TESTIMONIALS</p>
                     <h2 class="text-3xl font-bold">What Clients Say</h2>
                 </div>
-                
+
                 <!-- Testimonials Grid - Modified for better mobile display -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Testimonial 1 -->
@@ -383,25 +473,37 @@
                         <!-- Stars -->
                         <div class="flex mb-4">
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                         </div>
-                        
+
                         <!-- Testimonial Content -->
-                        <p class="text-gray-300 mb-6">Absolutely impressed with the sleek and user-friendly design. The layout perfectly reflects the professionalism - highly recommended for anyone looking to elevate their business.</p>
-                        
+                        <p class="text-gray-300 mb-6">Absolutely impressed with the sleek and user-friendly design. The
+                            layout perfectly reflects the professionalism - highly recommended for anyone looking to
+                            elevate their business.</p>
+
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
@@ -413,31 +515,42 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 2 -->
                     <div class="bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
                         <!-- Stars -->
                         <div class="flex mb-4">
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                         </div>
-                        
+
                         <!-- Testimonial Content -->
-                        <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the absolute best service hire & luxury car hire experience possible in the United Kingdom.</p>
-                        
+                        <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the
+                            absolute best service hire & luxury car hire experience possible in the United Kingdom.</p>
+
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
@@ -449,31 +562,42 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Testimonial 3 -->
                     <div class="bg-gray-900 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
                         <!-- Stars -->
                         <div class="flex mb-4">
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                </path>
                             </svg>
                         </div>
-                        
+
                         <!-- Testimonial Content -->
-                        <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the absolute best supercar hire & luxury car hire experience possible in the United Kingdom.</p>
-                        
+                        <p class="text-gray-300 mb-6">Our entire process is designed around giving our customers the
+                            absolute best supercar hire & luxury car hire experience possible in the United Kingdom.</p>
+
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
@@ -486,7 +610,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Mobile slider dots (for mobile testimonials carousel effect) -->
                 <div class="flex justify-center mt-6 md:hidden">
                     <button class="w-3 h-3 rounded-full bg-primary mx-1"></button>
@@ -496,8 +620,8 @@
             </div>
         </section>
     </div>
-      <!-- Contact Section -->
-      <section id="contact" class="py-20 bg-darkbg text-white relative overflow-hidden mt-6 mb-6">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darkbg text-white relative overflow-hidden mt-6 mb-6">
         <!-- Animated Background Elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
             <div class="absolute top-20 right-10 w-64 h-64 bg-primary opacity-10 rounded-full blur-xl"></div>
@@ -565,7 +689,8 @@
                                 <h3 class="text-xl font-semibold mb-2">Schedule a Consultation</h3>
                                 <p class="text-gray-300">Book a 30-minute call with one of our BPO specialists to
                                     discuss your needs.</p>
-                                <a href="#" class="text-primary hover:underline mt-1 block">Book your free
+                                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                                    class="text-primary hover:underline mt-1 block">Book your free
                                     consultation</a>
                             </div>
                         </div>
@@ -664,7 +789,7 @@
         </div>
     </section>
 
-    
+
     <!-- Footer - Improved for responsiveness -->
     <footer class="bg-gray-100">
         <div class="container mx-auto px-4 py-12">
@@ -672,7 +797,7 @@
                 <!-- Logo and Description Column -->
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center justify-center md:justify-start mb-4">
-                        <img src="/logo.png" alt="NEXTERIX" class="h-10">
+                        <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10">
                     </div>
                     <p class="text-gray-700 mb-4 text-center md:text-left">
                         Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
@@ -681,323 +806,349 @@
                     <div class="flex space-x-3 mt-4 justify-center md:justify-start">
                         <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
                             </svg>
                         </a>
                         <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z"/>
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
                             </svg>
                         </a>
-                       
+
                     </div>
                 </div>
-    
+
                 <!-- Products Column -->
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Payments</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Pricing</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Global</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-gray-900">FleetSync CRM</a></li>
+
                     </ul>
                 </div>
-    
+
                 <!-- Services Column -->
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">BPO</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a>
+                        </li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital
+                                Solutions</a></li>
                     </ul>
                 </div>
-    
-<!-- About Column -->
-<div class="col-span-1">
-    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
-    <ul class="space-y-2 text-center md:text-left">
-        <li><a href="#" class="text-gray-700 hover:text-gray-900">About</a></li>
-        <li><a href="#" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
-    </ul>
-</div>
-</div>
-</div>
 
-<!-- Copyright Bar -->
-<div class="bg-red-500 text-white text-center py-4">
-<p class="text-sm">© 2025 Nexterix, is proudly created by WebCraftio</p>
-</div>
-</footer>
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-// Initialize AOS animation library
-AOS.init({
-once: true,
-offset: 100,
-duration: 800
-});
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by<span class="font-bold"><a
+                        href="https://www.webcraftio.com/"> WebCraftio</a></span></p>
+        </div>
+    </footer>
 
-// Mobile menu toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
-const menuToggle = document.getElementById('menuToggle');
-const closeMenu = document.getElementById('closeMenu');
-const mobileMenu = document.getElementById('mobileMenu');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
 
-// Open mobile menu
-menuToggle.addEventListener('click', function() {
-mobileMenu.classList.remove('hidden');
-mobileMenu.classList.add('flex');
-document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-});
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
 
-// Close mobile menu
-closeMenu.addEventListener('click', function() {
-mobileMenu.classList.add('hidden');
-mobileMenu.classList.remove('flex');
-document.body.style.overflow = ''; // Restore scrolling
-});
+            // Open mobile menu
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
 
-// Close menu on resize if screen becomes larger
-window.addEventListener('resize', function() {
-if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('flex');
-    document.body.style.overflow = '';
-}
-});
-});
+            // Close mobile menu
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
 
-// Hero title text animation
-document.addEventListener('DOMContentLoaded', function () {
-const heroTitle = document.getElementById('hero-title');
-const originalHTML = heroTitle.innerHTML;
-const textContent = heroTitle.textContent;
+            // Close menu on resize if screen becomes larger
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
 
-// Create a container for the animated text that preserves the original markup
-const fragments = [];
-let currentIndex = 0;
+        // Hero title text animation
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroTitle = document.getElementById('hero-title');
+            const originalHTML = heroTitle.innerHTML;
+            const textContent = heroTitle.textContent;
 
-// Process the original HTML to wrap each character in a span while preserving HTML tags
-function processHTML(html) {
-const tempDiv = document.createElement('div');
-tempDiv.innerHTML = html;
+            // Create a container for the animated text that preserves the original markup
+            const fragments = [];
+            let currentIndex = 0;
 
-function traverseNodes(node) {
-    if (node.nodeType === 3) { // Text node
-        const text = node.textContent;
-        const spans = [];
+            // Process the original HTML to wrap each character in a span while preserving HTML tags
+            function processHTML(html) {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
 
-        for (let i = 0; i < text.length; i++) {
-            spans.push(`<span class="animated-chars" style="transition-delay: ${currentIndex * 0.03}s;">${text[i]}</span>`);
-            currentIndex++;
+                function traverseNodes(node) {
+                    if (node.nodeType === 3) { // Text node
+                        const text = node.textContent;
+                        const spans = [];
+
+                        for (let i = 0; i < text.length; i++) {
+                            spans.push(`<span class="animated-chars" style="transition-delay: ${currentIndex * 0.03}s;">${text[i]}</span>`);
+                            currentIndex++;
+                        }
+
+                        const spanHTML = spans.join('');
+                        const spanFragment = document.createRange().createContextualFragment(spanHTML);
+                        node.parentNode.replaceChild(spanFragment, node);
+                    } else if (node.nodeType === 1) { // Element node
+                        Array.from(node.childNodes).forEach(child => traverseNodes(child));
+                    }
+                }
+
+                Array.from(tempDiv.childNodes).forEach(child => traverseNodes(child));
+                return tempDiv.innerHTML;
+            }
+
+            const animatedHTML = processHTML(originalHTML);
+            heroTitle.innerHTML = animatedHTML;
+
+            // Trigger the animation after a short delay
+            setTimeout(() => {
+                const chars = document.querySelectorAll('.animated-chars');
+                chars.forEach(char => {
+                    char.style.opacity = 1;
+                    char.style.transform = 'translateY(0)';
+                });
+            }, 500);
+
+            // GSAP animations for CRM section
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from('#crm-title', {
+                scrollTrigger: {
+                    trigger: '#crm-title',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            // Floating animation for message bubbles
+            gsap.to('.message-bubble', {
+                y: -10,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                stagger: 0.3
+            });
+
+            // Decoration elements animation
+            gsap.to('.decoration', {
+                scale: 1.2,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                stagger: 0.2
+            });
+
+            // Parallax effect on scroll
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                gsap.to(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    },
+                    backgroundPosition: `50% ${-50}px`,
+                    ease: 'none'
+                });
+            });
+        });
+
+        // Hover animations for cards
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+
+        // Mobile testimonial slider functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Only on mobile
+            if (window.innerWidth < 768) {
+                const testimonials = document.querySelectorAll('.bg-gray-900.rounded-lg.p-6.shadow-lg');
+                const dots = document.querySelectorAll('.w-3.h-3.rounded-full');
+
+                // Hide all except first
+                for (let i = 1; i < testimonials.length; i++) {
+                    testimonials[i].classList.add('hidden');
+                }
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        // Hide all testimonials
+                        testimonials.forEach(t => t.classList.add('hidden'));
+                        // Show selected testimonial
+                        testimonials[index].classList.remove('hidden');
+
+                        // Update active dot
+                        dots.forEach(d => {
+                            d.classList.remove('bg-primary');
+                            d.classList.add('bg-gray-600');
+                        });
+                        dot.classList.remove('bg-gray-600');
+                        dot.classList.add('bg-primary');
+                    });
+                });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // When section is in view
+                    if (entry.isIntersecting) {
+                        // Add animation class to all images
+                        const animatedImages = document.querySelectorAll('.animated-image');
+                        animatedImages.forEach(image => {
+                            image.classList.add('animate');
+                        });
+
+                        // Stop observing after animation is triggered once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,      // Use viewport as the root
+                threshold: 0.2,  // Trigger when at least 20% of the section is visible
+                rootMargin: '0px'
+            });
+
+            // Start observing the section
+            const section = document.getElementById('animated-section');
+            if (section) {
+                observer.observe(section);
+            }
+        });
+    </script>
+    <script>
+        /* Custom cursor functionality */
+        document.addEventListener('DOMContentLoaded', function () {
+            // Custom cursor functionality
+            const cursor = document.getElementById('cursor');
+            const allLinks = document.querySelectorAll('a, button, .interactive');
+            const allTexts = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li');
+
+            // Only initialize cursor on non-touch devices
+            if (window.matchMedia("(pointer: fine)").matches && cursor) {
+                document.addEventListener('mousemove', function (e) {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                document.addEventListener('mousedown', function () {
+                    cursor.classList.add('active');
+                });
+
+                document.addEventListener('mouseup', function () {
+                    cursor.classList.remove('active');
+                });
+
+                // Custom cursor interactions
+                allLinks.forEach(link => {
+                    link.addEventListener('mouseenter', function () {
+                        cursor.classList.add('button-hover');
+                    });
+
+                    link.addEventListener('mouseleave', function () {
+                        cursor.classList.remove('button-hover');
+                    });
+                });
+
+                allTexts.forEach(text => {
+                    text.addEventListener('mouseenter', function () {
+                        cursor.classList.add('text-hover');
+                    });
+
+                    text.addEventListener('mouseleave', function () {
+                        cursor.classList.remove('text-hover');
+                    });
+                });
+            }
+
+            // Add modern button classes
+            const buttons = document.querySelectorAll('a.bg-primary, button.bg-primary, .btn-hover');
+            buttons.forEach(button => {
+                button.classList.add('btn-modern');
+
+                // Add pulse effect to main CTA buttons
+                if (button.textContent.trim().toLowerCase().includes("let's talk") ||
+                    button.textContent.trim().toLowerCase().includes("book a demo")) {
+                    button.classList.add('btn-pulse');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Menu toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('closeMenu').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Dropdown toggle
+        function toggle(id) {
+            const menu = document.getElementById(id);
+            const icon = document.getElementById(id === 'productsMenu' ? 'productsIcon' : 'servicesIcon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
         }
+    </script>
 
-        const spanHTML = spans.join('');
-        const spanFragment = document.createRange().createContextualFragment(spanHTML);
-        node.parentNode.replaceChild(spanFragment, node);
-    } else if (node.nodeType === 1) { // Element node
-        Array.from(node.childNodes).forEach(child => traverseNodes(child));
-    }
-}
-
-Array.from(tempDiv.childNodes).forEach(child => traverseNodes(child));
-return tempDiv.innerHTML;
-}
-
-const animatedHTML = processHTML(originalHTML);
-heroTitle.innerHTML = animatedHTML;
-
-// Trigger the animation after a short delay
-setTimeout(() => {
-const chars = document.querySelectorAll('.animated-chars');
-chars.forEach(char => {
-    char.style.opacity = 1;
-    char.style.transform = 'translateY(0)';
-});
-}, 500);
-
-// GSAP animations for CRM section
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.from('#crm-title', {
-scrollTrigger: {
-    trigger: '#crm-title',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-},
-y: 50,
-opacity: 0,
-duration: 1,
-ease: 'power3.out'
-});
-
-// Floating animation for message bubbles
-gsap.to('.message-bubble', {
-y: -10,
-duration: 2,
-repeat: -1,
-yoyo: true,
-ease: 'sine.inOut',
-stagger: 0.3
-});
-
-// Decoration elements animation
-gsap.to('.decoration', {
-scale: 1.2,
-duration: 1.5,
-repeat: -1,
-yoyo: true,
-ease: 'sine.inOut',
-stagger: 0.2
-});
-
-// Parallax effect on scroll
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-gsap.to(section, {
-    scrollTrigger: {
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true
-    },
-    backgroundPosition: `50% ${-50}px`,
-    ease: 'none'
-});
-});
-});
-
-// Hover animations for cards
-const cards = document.querySelectorAll('.card-hover');
-cards.forEach(card => {
-card.addEventListener('mouseenter', () => {
-gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
-});
-
-card.addEventListener('mouseleave', () => {
-gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
-});
-});
-
-// Mobile testimonial slider functionality
-document.addEventListener('DOMContentLoaded', function() {
-// Only on mobile
-if (window.innerWidth < 768) {
-const testimonials = document.querySelectorAll('.bg-gray-900.rounded-lg.p-6.shadow-lg');
-const dots = document.querySelectorAll('.w-3.h-3.rounded-full');
-
-// Hide all except first
-for (let i = 1; i < testimonials.length; i++) {
-    testimonials[i].classList.add('hidden');
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        // Hide all testimonials
-        testimonials.forEach(t => t.classList.add('hidden'));
-        // Show selected testimonial
-        testimonials[index].classList.remove('hidden');
-        
-        // Update active dot
-        dots.forEach(d => {
-            d.classList.remove('bg-primary');
-            d.classList.add('bg-gray-600');
-        });
-        dot.classList.remove('bg-gray-600');
-        dot.classList.add('bg-primary');
-    });
-});
-}
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    // When section is in view
-    if (entry.isIntersecting) {
-        // Add animation class to all images
-        const animatedImages = document.querySelectorAll('.animated-image');
-        animatedImages.forEach(image => {
-            image.classList.add('animate');
-        });
-        
-        // Stop observing after animation is triggered once
-        observer.unobserve(entry.target);
-    }
-});
-}, {
-root: null,      // Use viewport as the root
-threshold: 0.2,  // Trigger when at least 20% of the section is visible
-rootMargin: '0px'
-});
-
-// Start observing the section
-const section = document.getElementById('animated-section');
-if (section) {
-observer.observe(section);
-}
-});
-</script>
-<script>
-/* Custom cursor functionality */
-document.addEventListener('DOMContentLoaded', function() {
-// Custom cursor functionality
-const cursor = document.getElementById('cursor');
-const allLinks = document.querySelectorAll('a, button, .interactive');
-const allTexts = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li');
-
-// Only initialize cursor on non-touch devices
-if (window.matchMedia("(pointer: fine)").matches && cursor) {
-document.addEventListener('mousemove', function(e) {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-document.addEventListener('mousedown', function() {
-    cursor.classList.add('active');
-});
-
-document.addEventListener('mouseup', function() {
-    cursor.classList.remove('active');
-});
-
-// Custom cursor interactions
-allLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
-        cursor.classList.add('button-hover');
-    });
-    
-    link.addEventListener('mouseleave', function() {
-        cursor.classList.remove('button-hover');
-    });
-});
-
-allTexts.forEach(text => {
-    text.addEventListener('mouseenter', function() {
-        cursor.classList.add('text-hover');
-    });
-    
-    text.addEventListener('mouseleave', function() {
-        cursor.classList.remove('text-hover');
-    });
-});
-}
-
-// Add modern button classes
-const buttons = document.querySelectorAll('a.bg-primary, button.bg-primary, .btn-hover');
-buttons.forEach(button => {
-button.classList.add('btn-modern');
-
-// Add pulse effect to main CTA buttons
-if (button.textContent.trim().toLowerCase().includes("let's talk") || 
-    button.textContent.trim().toLowerCase().includes("book a demo")) {
-    button.classList.add('btn-pulse');
-}
-});
-});
-</script>
 </body>
+
 </html>
