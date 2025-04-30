@@ -33,7 +33,6 @@
 </head>
 
 <body class="font-sans">
-    <div id="cursor" class="custom-cursor hidden md:block"></div>
 
     <div class="w-full overflow-hidden">
         <!-- Navbar  -->
@@ -41,49 +40,58 @@
         <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
             <!-- Mobile burger menu -->
             <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
-        
+
             <!-- Logo -->
             <div class="font-bold text-center md:text-left mx-auto md:mx-0">
                 <a href="/"> <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
             </div>
-        
+
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center">
                 <ul class="flex space-x-8">
                     <!-- Products Dropdown -->
                     <li class="relative nx-dropdown-container">
-                        <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_products">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
                             Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                                 <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div id="nx_products_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
-                            <a href="Fleetsync.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="FleetSeek.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSeek
+                                CRM</a>
                         </div>
                     </li>
-        
+
                     <!-- Services Dropdown -->
                     <li class="relative nx-dropdown-container">
-                        <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_services">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
                             Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                                 <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div id="nx_services_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
                             <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
-                            <a href="Digital-Solutions.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
-                            <a href="Logistics-Tech.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
                         </div>
                     </li>
-        
+
                     <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
                     <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
                 </ul>
-        
+
                 <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
                     class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
             </div>
-        
+
             <!-- Mobile menu - hidden by default -->
             <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
                 <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
@@ -92,37 +100,46 @@
                         <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
                         <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
                     </div>
-        
+
                     <!-- Mobile menu links -->
                     <div class="p-5 flex-1 overflow-y-auto">
                         <ul class="space-y-4">
                             <li class="nx-mobile-dropdown">
-                                <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
-                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
-                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
                                     </svg>
                                 </button>
                                 <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
-                                    <a href="#" class="block py-1 text-gray-600 hover:text-primary">FleetSync CRM</a>
+                                    <a href="FleetSeek.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">FleetSeek CRM</a>
                                 </div>
                             </li>
                             <li class="nx-mobile-dropdown">
-                                <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
-                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
-                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
                                     </svg>
                                 </button>
                                 <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
                                     <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
-                                    <a href="Digital-Solutions.html" class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
-                                    <a href="Logistics-Tech.html" class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                    <a href="Digital-Solutions.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                    <a href="Logistics-Tech.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
                                 </div>
                             </li>
                             <li><a href="About.html" class="block py-2">About Us</a></li>
                             <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
                         </ul>
                     </div>
-        
+
                     <!-- Mobile CTA -->
                     <div class="p-5 border-t">
                         <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
@@ -149,6 +166,7 @@
                     <input type="email" placeholder="Your Email.."
                         class="w-full py-4 px-5 border-0 rounded-t-lg sm:rounded-tr-none sm:rounded-l-lg bg-lightgray text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                     <button
+                        onclick="window.location.href='https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan'"
                         class="bg-primary text-white  px-6 py-2 whitespace-nowrap font-medium rounded-b-lg sm:rounded-bl-none sm:rounded-r-lg hover:bg-red-700 transition-colors">Let's
                         Talk</button>
                 </div>
@@ -335,7 +353,8 @@
                                 Shipment monitoring & real-time updates
                             </li>
                         </ul>
-                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline group">
+                        <a href="Logistics-Tech.html"
+                            class="inline-flex items-center text-primary font-medium hover:underline group">
                             Learn more
                             <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
                                 fill="currentColor" viewBox="0 0 20 20">
@@ -363,7 +382,7 @@
                             applications, our expert team turns your ideas into high-performing, scalable, and
                             user-friendly digital products.
                         </p>
-                        <a href="#"
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
                             class="inline-block bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-full text-sm transition-all btn-hover interactive">Let's
                             Talk</a>
                     </div>
@@ -429,7 +448,7 @@
                             tracking and smart scheduling, our system uses AI to optimize every step of your logistics
                             workflow.
                         </p>
-                        <a href="#"
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
                             class="inline-block bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-full text-sm transition-all btn-hover interactive">Book
                             a Demo</a>
                     </div>
@@ -496,7 +515,6 @@
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
-                                <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="font-medium">Dan Martin</p>
@@ -543,7 +561,7 @@
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
-                                <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
+
                             </div>
                             <div>
                                 <p class="font-medium">Dan Martin</p>
@@ -590,7 +608,7 @@
                         <!-- Client Info -->
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
-                                <img src="/api/placeholder/100/100" alt="Dan Martin" class="w-full h-full object-cover">
+
                             </div>
                             <div>
                                 <p class="font-medium">Dan Martin</p>
@@ -660,8 +678,8 @@
                                 <h3 class="text-xl font-semibold mb-2">Call Us</h3>
                                 <p class="text-gray-300">Speak directly with a BPO consultant who can answer your
                                     questions.</p>
-                                <a href="tel:+1-800-123-4567" class="text-primary hover:underline mt-1 block">+1 (800)
-                                    123-4567</a>
+                                <a href="tel:+1-424-480-7774" class="text-primary hover:underline mt-1 block">+1 (424)
+                                    480-7774</a>
                             </div>
                         </div>
 
@@ -681,6 +699,21 @@
                                 <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
                                     class="text-primary hover:underline mt-1 block">Book your free
                                     consultation</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 2a6 6 0 00-6 6c0 4.418 6 10 6 10s6-5.582 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Address</h3>
+                                <p class="text-gray-300">117 S Lexington St, Harrisonville</p>
                             </div>
                         </div>
                     </div>
@@ -738,13 +771,13 @@
                                     Interest</label>
                                 <select id="service" name="service"
                                     class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white">
-                                    <option value="" disabled selected>Select a service</option>
-                                    <option value="customer-support">Customer Support</option>
-                                    <option value="back-office">Back Office Operations</option>
-                                    <option value="sales">Sales & Lead Generation</option>
-                                    <option value="technical-support">Technical Support</option>
-                                    <option value="content-moderation">Content Moderation</option>
-                                    <option value="virtual-assistants">Virtual Assistants</option>
+                                    <option class="text-black" value="" disabled selected>Select a service</option>
+                                    <option class="text-black" value="customer-support">Customer Support</option>
+                                    <option class="text-black" value="back-office">Back Office Operations</option>
+                                    <option class="text-black" value="sales">Sales & Lead Generation</option>
+                                    <option class="text-black" value="technical-support">Technical Support</option>
+                                    <option class="text-black" value="content-moderation">Content Moderation</option>
+                                    <option class="text-black" value="virtual-assistants">Virtual Assistants</option>
                                 </select>
                             </div>
 
@@ -763,8 +796,7 @@
                                 </div>
                                 <div class="ml-3 text-sm">
                                     <label for="terms" class="text-gray-300">I agree to the <a href="#"
-                                            class="text-primary hover:underline">Terms of Service</a> and <a href="#"
-                                            class="text-primary hover:underline">Privacy Policy</a></label>
+                                            class="text-primary hover:underline"> Privacy Policy.</a></label>
                                 </div>
                             </div>
 
@@ -813,7 +845,7 @@
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">FleetSync CRM</a></li>
+                        <li><a href="FleetSeek.html" class="text-gray-700 hover:text-gray-900">FleetSeek CRM</a></li>
 
                     </ul>
                 </div>
@@ -1059,64 +1091,7 @@
             }
         });
     </script>
-    <script>
-        /* Custom cursor functionality */
-        document.addEventListener('DOMContentLoaded', function () {
-            // Custom cursor functionality
-            const cursor = document.getElementById('cursor');
-            const allLinks = document.querySelectorAll('a, button, .interactive');
-            const allTexts = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li');
 
-            // Only initialize cursor on non-touch devices
-            if (window.matchMedia("(pointer: fine)").matches && cursor) {
-                document.addEventListener('mousemove', function (e) {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-
-                document.addEventListener('mousedown', function () {
-                    cursor.classList.add('active');
-                });
-
-                document.addEventListener('mouseup', function () {
-                    cursor.classList.remove('active');
-                });
-
-                // Custom cursor interactions
-                allLinks.forEach(link => {
-                    link.addEventListener('mouseenter', function () {
-                        cursor.classList.add('button-hover');
-                    });
-
-                    link.addEventListener('mouseleave', function () {
-                        cursor.classList.remove('button-hover');
-                    });
-                });
-
-                allTexts.forEach(text => {
-                    text.addEventListener('mouseenter', function () {
-                        cursor.classList.add('text-hover');
-                    });
-
-                    text.addEventListener('mouseleave', function () {
-                        cursor.classList.remove('text-hover');
-                    });
-                });
-            }
-
-            // Add modern button classes
-            const buttons = document.querySelectorAll('a.bg-primary, button.bg-primary, .btn-hover');
-            buttons.forEach(button => {
-                button.classList.add('btn-modern');
-
-                // Add pulse effect to main CTA buttons
-                if (button.textContent.trim().toLowerCase().includes("let's talk") ||
-                    button.textContent.trim().toLowerCase().includes("book a demo")) {
-                    button.classList.add('btn-pulse');
-                }
-            });
-        });
-    </script>
     <script>
         (function () {
             // Immediately invoked function to create closure and avoid global scope contamination

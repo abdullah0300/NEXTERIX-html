@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FleetSync CRM - Next-Gen Trucking Management System</title>
+    <title>FleetSeek CRM - Next-Gen Trucking Management System</title>
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS Animation Library -->
@@ -151,57 +151,64 @@
 </head>
 
 <body class="font-sans bg-offWhite">
-    <div id="cursor"
-        class="fixed w-5 h-5 rounded-full bg-primary bg-opacity-30 pointer-events-none z-50 mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 hidden md:block">
-    </div>
+   
 
     <!-- Navbar -->
     <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
         <!-- Mobile burger menu -->
         <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
-    
+
         <!-- Logo -->
         <div class="font-bold text-center md:text-left mx-auto md:mx-0">
             <a href="/"> <img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
         </div>
-    
+
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center">
             <ul class="flex space-x-8">
                 <!-- Products Dropdown -->
                 <li class="relative nx-dropdown-container">
-                    <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_products">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_products">
                         Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div id="nx_products_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
-                        <a href="Fleetsync.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSync CRM</a>
+                    <div id="nx_products_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="FleetSeek.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSeek
+                            CRM</a>
                     </div>
                 </li>
-    
+
                 <!-- Services Dropdown -->
                 <li class="relative nx-dropdown-container">
-                    <button type="button" class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none" data-dropdown="nx_services">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_services">
                         Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div id="nx_services_dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                    <div id="nx_services_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
                         <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
-                        <a href="Digital-Solutions.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
-                        <a href="Logistics-Tech.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        <a href="Digital-Solutions.html"
+                            class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                        <a href="Logistics-Tech.html"
+                            class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
                     </div>
                 </li>
-    
+
                 <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
                 <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
             </ul>
-    
+
             <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
                 class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
         </div>
-    
+
         <!-- Mobile menu - hidden by default -->
         <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
             <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
@@ -210,37 +217,46 @@
                     <a href="/"><img src="/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
                     <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
                 </div>
-    
+
                 <!-- Mobile menu links -->
                 <div class="p-5 flex-1 overflow-y-auto">
                     <ul class="space-y-4">
                         <li class="nx-mobile-dropdown">
-                            <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
-                                Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
                                 </svg>
                             </button>
                             <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
-                                <a href="#" class="block py-1 text-gray-600 hover:text-primary">FleetSync CRM</a>
+                                <a href="FleetSeek.html" class="block py-1 text-gray-600 hover:text-primary">FleetSeek
+                                    CRM</a>
                             </div>
                         </li>
                         <li class="nx-mobile-dropdown">
-                            <button type="button" class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
-                                Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
                                 </svg>
                             </button>
                             <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
                                 <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
-                                <a href="Digital-Solutions.html" class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
-                                <a href="Logistics-Tech.html" class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                <a href="Digital-Solutions.html"
+                                    class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                <a href="Logistics-Tech.html"
+                                    class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
                             </div>
                         </li>
                         <li><a href="About.html" class="block py-2">About Us</a></li>
                         <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
                     </ul>
                 </div>
-    
+
                 <!-- Mobile CTA -->
                 <div class="p-5 border-t">
                     <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
@@ -265,7 +281,7 @@
                         #1 Trucking Management Solution
                     </span>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-darkBlue leading-tight">
-                        <span class="gradient-text text-shadow">FleetSync CRM</span> <span class="block">Intelligent
+                        <span class="gradient-text text-shadow">FleetSeek CRM</span> <span class="block">Intelligent
                             Trucking Management</span>
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
@@ -286,8 +302,7 @@
                 </div>
                 <div class="lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
                     <div class="relative hero-image">
-                        <img src="/dashboard.jpg" alt="FleetSync CRM Dashboard"
-                            class="w-full rounded-xl shadow-2xl">
+                        <img src="/dashboard.jpg" alt="FleetSeek CRM Dashboard" class="w-full rounded-xl shadow-2xl">
                         <!-- Floating Elements -->
                         <div
                             class="absolute -top-6 -right-6 w-24 h-24 bg-primary rounded-lg shadow-lg transform rotate-12 animate-float">
@@ -327,7 +342,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">One Platform, Complete Fleet Management
                 </h2>
                 <p class="text-lg text-gray-600">
-                    FleetSync CRM brings together everything you need to manage your trucking operations efficiently
+                    FleetSeek CRM brings together everything you need to manage your trucking operations efficiently
                     with powerful tools for managers and drivers.
                 </p>
             </div>
@@ -643,12 +658,11 @@
     <section class="py-20 bg-darkbg from-darkBlue to-secondary text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-pattern opacity-10"></div>
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary to-transparent opacity-20"></div>
-
+    
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 lg:pr-12" data-aos="fade-right" data-aos-duration="1000">
-                    <span
-                        class="inline-block px-4 py-1 rounded-full bg-white bg-opacity-20 text-white font-medium text-sm mb-6">
+                    <span class="inline-block px-4 py-1 rounded-full bg-white bg-opacity-20 text-white font-medium text-sm mb-6">
                         Driver Mobile App
                     </span>
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
@@ -659,7 +673,7 @@
                         Drivers can perform pre-trip inspections, submit daily logs, and receive important notifications
                         all from their smartphone.
                     </p>
-
+    
                     <div class="space-y-6 mb-8">
                         <!-- Feature 1 -->
                         <div class="flex items-start">
@@ -676,7 +690,7 @@
                                     when they're assigned to a truck.</p>
                             </div>
                         </div>
-
+    
                         <!-- Feature 2 -->
                         <div class="flex items-start">
                             <div class="bg-white bg-opacity-10 rounded-full p-3 mr-4">
@@ -693,7 +707,7 @@
                                     support for comments and file uploads.</p>
                             </div>
                         </div>
-
+    
                         <!-- Feature 3 -->
                         <div class="flex items-start">
                             <div class="bg-white bg-opacity-10 rounded-full p-3 mr-4">
@@ -710,7 +724,7 @@
                             </div>
                         </div>
                     </div>
-
+    
                     <div class="flex space-x-4">
                         <a href="#"
                             class="flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors">
@@ -741,26 +755,25 @@
                         </a>
                     </div>
                 </div>
-
+    
                 <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center" data-aos="fade-left" data-aos-duration="1000"
                     data-aos-delay="300">
                     <div class="relative w-[280px] h-[560px]">
                         <!-- Phone Frame -->
                         <div class="absolute inset-0 border-8 border-darkBlue rounded-[40px] z-20 shadow-2xl"></div>
-
+    
                         <!-- Screenshot -->
-                        <img src="/mobile app.png" alt="FleetSync Mobile App"
+                        <img src="/mobile app.png" alt="FleetSeek Mobile App"
                             class="absolute inset-0 z-10 rounded-[40px] object-cover">
-
+    
                         <!-- Floating Stats -->
                         <div
-                            class="absolute -right-16 top-12 bg-primary text-white rounded-lg shadow-lg py-3 px-4 transform rotate-6 animate-float">
+                            class="absolute -right-16 top-12 bg-primary text-white rounded-lg shadow-lg py-3 px-4 transform rotate-6 animate-float z-30">
                             <div class="font-bold text-xl">#200330029</div>
                             <div class="text-xs opacity-80">Truck Number</div>
                         </div>
-
-                        <div class="absolute -left-12 top-1/3 bg-white rounded-lg shadow-lg py-3 px-4 transform -rotate-6 animate-float"
-                            style="animation-delay: 0.5s;">
+    
+                        <div class="absolute -left-12 top-1/3 bg-white rounded-lg shadow-lg py-3 px-4 transform -rotate-6 animate-float z-30" style="animation-delay: 0.5s;">
                             <div class="font-bold text-darkBlue">PreTrip ✓</div>
                             <div class="text-xs text-gray-500">Completed</div>
                         </div>
@@ -769,7 +782,6 @@
             </div>
         </div>
     </section>
-
     <!-- Dashboard Showcase Section -->
     <section class="py-20 bg-offWhite relative overflow-hidden">
         <div class="absolute -top-40 -left-40 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
@@ -789,7 +801,7 @@
             </div>
 
             <div class="relative rounded-xl shadow-2xl overflow-hidden" data-aos="zoom-in" data-aos-duration="1200">
-                <img src="/dashboard.jpg" alt="FleetSync CRM Dashboard" class="w-full">
+                <img src="/dashboard.jpg" alt="FleetSeek CRM Dashboard" class="w-full">
 
                 <!-- Stats Overlays -->
                 <div
@@ -870,7 +882,7 @@
                     class="inline-block px-4 py-1 rounded-full bg-primary bg-opacity-10 text-primary font-medium text-sm mb-4">
                     Simplified Workflow
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">How FleetSync CRM Works</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">How FleetSeek CRM Works</h2>
                 <p class="text-lg text-gray-600">
                     Our platform connects managers and drivers with a seamless workflow that ensures compliance and
                     operational efficiency.
@@ -945,7 +957,7 @@
                 </span>
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Trusted by Trucking Companies</h2>
                 <p class="text-lg text-gray-600">
-                    See how FleetSync CRM has transformed operations for trucking companies of all sizes.
+                    See how FleetSeek CRM has transformed operations for trucking companies of all sizes.
                 </p>
             </div>
 
@@ -979,7 +991,7 @@
                             </path>
                         </svg>
                     </div>
-                    <p class="text-gray-600 mb-6">"FleetSync CRM has completely transformed how we manage our fleet. The
+                    <p class="text-gray-600 mb-6">"FleetSeek CRM has completely transformed how we manage our fleet. The
                         pre-trip inspection forms and mileage notifications have reduced our maintenance issues by 78%
                         in just three months."</p>
                     <div class="flex items-center">
@@ -1066,179 +1078,233 @@
                         </svg>
                     </div>
                     <p class="text-gray-600 mb-6">"As a small fleet owner, I was hesitant about investing in new
-                        software, but FleetSync CRM paid for itself within the first month. The reporting features alone
+                        software, but FleetSeek CRM paid for itself within the first month. The reporting features alone
                         have saved us countless hours of administrative work."</p>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                <img src="/api/placeholder/100/100" alt="Customer" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <p class="font-bold text-darkBlue">Michael Chen</p>
-                                <p class="text-sm text-gray-500">Owner, Chen Transportation LLC</p>
-                            </div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="/api/placeholder/100/100" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-darkBlue">Michael Chen</p>
+                            <p class="text-sm text-gray-500">Owner, Chen Transportation LLC</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Pricing Section -->
-        <section id="pricing" class="py-20 bg-white relative overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
-            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary opacity-5 rounded-full"></div>
-            
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                    <span class="inline-block px-4 py-1 rounded-full bg-darkBlue bg-opacity-10 text-darkBlue font-medium text-sm mb-4">
-                        Flexible Pricing
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Plans That Grow With Your Business</h2>
-                    <p class="text-lg text-gray-600">
-                        Choose the perfect plan for your fleet size and business needs. All plans include our core features with scaling capabilities.
-                    </p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- Starter Plan -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-darkBlue bg-opacity-5 p-6">
-                            <h3 class="text-xl font-bold text-darkBlue">Starter Fleet</h3>
-                            <p class="text-gray-600 mt-2">Perfect for small trucking operations</p>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-darkBlue">$199</span>
-                                <span class="text-gray-500">/month</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Up to 10 trucks</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Up to 20 driver accounts</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Basic reporting</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Email support</span>
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-darkBlue hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Get Started</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Professional Plan -->
-                    <div class="bg-white rounded-xl shadow-xl overflow-hidden relative transform scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
-                        <div class="bg-primary bg-opacity-10 p-6">
-                            <h3 class="text-xl font-bold text-primary">Professional Fleet</h3>
-                            <p class="text-gray-600 mt-2">Ideal for growing trucking companies</p>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-primary">$399</span>
-                                <span class="text-gray-500">/month</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Up to 50 trucks</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Unlimited driver accounts</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Advanced analytics & reporting</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Priority email & phone support</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Custom pre-trip forms</span>
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-primary hover:bg-red-700 text-white font-medium rounded-lg transition-colors">Get Started</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Enterprise Plan -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bg-secondary bg-opacity-10 p-6">
-                            <h3 class="text-xl font-bold text-secondary">Enterprise Fleet</h3>
-                            <p class="text-gray-600 mt-2">For large trucking operations</p>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-secondary">Custom</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Unlimited trucks</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Unlimited driver accounts</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Full enterprise reporting suite</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">24/7 dedicated support</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="text-gray-700">Custom integrations</span>
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-6 block w-full py-3 px-6 text-center bg-secondary hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Contact Sales</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Form Section with animation -->
-    <section id="contact-form" class="py-20  bg-darkbg text-white relative overflow-hidden">
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
+        <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary opacity-5 rounded-full"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="inline-block px-4 py-1 rounded-full bg-darkBlue bg-opacity-10 text-darkBlue font-medium text-sm mb-4">
+                    Flexible Pricing
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-darkBlue">Plans That Grow With Your Business</h2>
+                <p class="text-lg text-gray-600">
+                    Choose the perfect plan for your fleet size and business needs. All plans include our core features
+                    with scaling capabilities.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-darkBlue bg-opacity-5 p-6">
+                        <h3 class="text-xl font-bold text-darkBlue">Starter Fleet</h3>
+                        <p class="text-gray-600 mt-2">Perfect for small trucking operations</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold text-darkBlue">$199</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Up to 10 trucks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Up to 20 driver accounts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Basic reporting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Email support</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="mt-6 block w-full py-3 px-6 text-center bg-darkBlue hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Get
+                            Started</a>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden relative transform scale-105 z-10"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        POPULAR</div>
+                    <div class="bg-primary bg-opacity-10 p-6">
+                        <h3 class="text-xl font-bold text-primary">Professional Fleet</h3>
+                        <p class="text-gray-600 mt-2">Ideal for growing trucking companies</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold text-primary">$399</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Up to 50 trucks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Unlimited driver accounts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Advanced analytics & reporting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Priority email & phone support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Custom pre-trip forms</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="mt-6 block w-full py-3 px-6 text-center bg-primary hover:bg-red-700 text-white font-medium rounded-lg transition-colors">Get
+                            Started</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-2 duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-secondary bg-opacity-10 p-6">
+                        <h3 class="text-xl font-bold text-secondary">Enterprise Fleet</h3>
+                        <p class="text-gray-600 mt-2">For large trucking operations</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold text-secondary">Custom</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Unlimited trucks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Unlimited driver accounts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Full enterprise reporting suite</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">24/7 dedicated support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Custom integrations</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="mt-6 block w-full py-3 px-6 text-center bg-secondary hover:bg-opacity-90 text-white font-medium rounded-lg transition-colors">Contact
+                            Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section with animation -->
+    <section id="contact" class="py-20 bg-darkbg text-white relative overflow-hidden mt-6 mb-6">
         <!-- Animated Background Elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
             <div class="absolute top-20 right-10 w-64 h-64 bg-primary opacity-10 rounded-full blur-xl"></div>
@@ -1250,7 +1316,7 @@
                 <div data-aos="fade-right" data-aos-duration="1000">
                     <h2 class="text-4xl font-bold mb-6">Ready to Transform Your <span class="text-primary">Business
                             Operations?</span></h2>
-                    <p class="text-xl text-gray-300 mb-8">Get in touch with our team to discuss how our solutions
+                    <p class="text-xl text-gray-300 mb-8">Get in touch with our team to discuss how our BPO solutions
                         can help your business grow, reduce costs, and improve efficiency.</p>
 
                     <div class="space-y-6 mb-8">
@@ -1286,10 +1352,10 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Call Us</h3>
-                                <p class="text-gray-300">Speak directly with a consultant who can answer your
+                                <p class="text-gray-300">Speak directly with a BPO consultant who can answer your
                                     questions.</p>
-                                <a href="tel:+1-800-123-4567" class="text-primary hover:underline mt-1 block">+1 (800)
-                                    123-4567</a>
+                                <a href="tel:+1-424-480-7774" class="text-primary hover:underline mt-1 block">+1 (424)
+                                    480-7774</a>
                             </div>
                         </div>
 
@@ -1304,13 +1370,31 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Schedule a Consultation</h3>
-                                <p class="text-gray-300">Book a 30-minute call with one of our specialists to
+                                <p class="text-gray-300">Book a 30-minute call with one of our BPO specialists to
                                     discuss your needs.</p>
-                                <a href="#" class="text-primary hover:underline mt-1 block">Book your free
+                                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                                    class="text-primary hover:underline mt-1 block">Book your free
                                     consultation</a>
                             </div>
                         </div>
+                        <div class="flex items-start">
+                            <div
+                                class="w-12 h-12 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 2a6 6 0 00-6 6c0 4.418 6 10 6 10s6-5.582 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Address</h3>
+                                <p class="text-gray-300">117 S Lexington St, Harrisonville</p>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
 
                 <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
@@ -1363,13 +1447,13 @@
                                     Interest</label>
                                 <select id="service" name="service"
                                     class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-white">
-                                    <option value="" disabled selected>Select a service</option>
-                                    <option value="customer-support">Customer Support</option>
-                                    <option value="back-office">Back Office Operations</option>
-                                    <option value="sales">Sales & Lead Generation</option>
-                                    <option value="technical-support">Technical Support</option>
-                                    <option value="content-moderation">Content Moderation</option>
-                                    <option value="virtual-assistants">Virtual Assistants</option>
+                                    <option class="text-black" value="" disabled selected>Select a service</option>
+                                    <option class="text-black" value="customer-support">Customer Support</option>
+                                    <option class="text-black" value="back-office">Back Office Operations</option>
+                                    <option class="text-black" value="sales">Sales & Lead Generation</option>
+                                    <option class="text-black" value="technical-support">Technical Support</option>
+                                    <option class="text-black" value="content-moderation">Content Moderation</option>
+                                    <option class="text-black" value="virtual-assistants">Virtual Assistants</option>
                                 </select>
                             </div>
 
@@ -1388,13 +1472,12 @@
                                 </div>
                                 <div class="ml-3 text-sm">
                                     <label for="terms" class="text-gray-300">I agree to the <a href="#"
-                                            class="text-primary hover:underline">Terms of Service</a> and <a href="#"
-                                            class="text-primary hover:underline">Privacy Policy</a></label>
+                                            class="text-primary hover:underline"> Privacy Policy.</a></label>
                                 </div>
                             </div>
 
                             <button type="submit"
-                                class="w-full px-8 py-4 bg-primary text-white font-medium rounded-lg hover:bg-red-700 transition-colors">Schedule
+                                class="w-full px-8 py-4 bg-primary text-white font-medium rounded-lg hover:bg-red-700 transition-colors btn-modern">Schedule
                                 Your Free Consultation</button>
                         </form>
                     </div>
@@ -1403,7 +1486,7 @@
         </div>
     </section>
 
-         <!-- Footer  -->
+    <!-- Footer  -->
     <footer class="bg-gray-100">
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -1437,7 +1520,7 @@
                 <div class="col-span-1">
                     <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
                     <ul class="space-y-2 text-center md:text-left">
-                        <li><a href="#" class="text-gray-700 hover:text-gray-900">FleetSync CRM</a></li>
+                        <li><a href="FleetSeek.html" class="text-gray-700 hover:text-gray-900">FleetSeek CRM</a></li>
 
                     </ul>
                 </div>
@@ -1471,217 +1554,144 @@
                         href="https://www.webcraftio.com/">WebCraftio</a></span></p>
         </div>
     </footer>
-        
-      
-        <!-- Scripts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        <script>
-            // Initialize AOS animations
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out',
-                once: true,
-                offset: 120
-            });
-            
-            // Navbar dropdown functionality
-            document.addEventListener('DOMContentLoaded', function() {
-                // Mobile menu toggle
-                const menuToggle = document.getElementById('nx_menuToggle');
-                const closeMenu = document.getElementById('nx_closeMenu');
-                const mobileMenu = document.getElementById('nx_mobileMenu');
-        
-                if (menuToggle && closeMenu && mobileMenu) {
-                    // Open mobile menu
-                    menuToggle.addEventListener('click', function() {
-                        mobileMenu.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden'; // Prevent scrolling
-                    });
-                    
-                    // Close mobile menu
-                    closeMenu.addEventListener('click', function() {
-                        mobileMenu.classList.add('hidden');
-                        document.body.style.overflow = ''; // Restore scrolling
-                    });
-                }
-                
-                // Desktop dropdown toggles
-                const dropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
-                
-                dropdownTriggers.forEach(trigger => {
+    <script>
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
                     const dropdownId = trigger.getAttribute('data-dropdown');
-                    const dropdown = document.getElementById(dropdownId + '_dropdown');
-                    
-                    if (!dropdown) return; // Skip if element not found
-                    
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                    if (!dropdownContent) return; // Skip if element not found
+
                     // Click handler for dropdown trigger
-                    trigger.addEventListener('click', function(e) {
+                    trigger.addEventListener('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation(); // Prevent document click from immediately closing
-                        
+
                         // Close all other dropdowns
                         document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
                             if (dropdown !== dropdownContent) {
                                 dropdown.classList.add('hidden');
                             }
                         });
-                        
+
                         // Toggle current dropdown
-                        dropdown.classList.toggle('hidden');
+                        dropdownContent.classList.toggle('hidden');
                     });
-                    
+
                     // Prevent dropdown content clicks from closing the dropdown
-                    dropdown.addEventListener('click', function(e) {
+                    dropdownContent.addEventListener('click', function (e) {
                         e.stopPropagation(); // Don't let clicks bubble to document
                     });
                 });
-                
+
                 // Close all dropdowns when clicking elsewhere
-                document.addEventListener('click', function() {
+                document.addEventListener('click', function () {
                     document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
                         dropdown.classList.add('hidden');
                     });
                 });
-                
-                // Mobile dropdown toggles
-                const mobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
-                
-                mobileDropdowns.forEach(dropdown => {
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
                     const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
                     const content = dropdown.querySelector('.nx-mobile-dropdown-content');
                     const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
-                    
+
                     if (!trigger || !content || !icon) return; // Skip if elements not found
-                    
-                    trigger.addEventListener('click', function() {
+
+                    trigger.addEventListener('click', function () {
                         // Toggle dropdown visibility
                         content.classList.toggle('hidden');
                         // Toggle icon rotation
                         icon.classList.toggle('rotate-180');
                     });
                 });
-                
-                // FAQ toggle functionality
-                window.toggleFAQ = function(button) {
-                    const content = button.nextElementSibling;
-                    const icon = button.querySelector('svg');
-                    
-                    content.classList.toggle('hidden');
-                    icon.classList.toggle('rotate-180');
-                };
-                
-                // Back to top button functionality
-                const backToTopButton = document.getElementById('backToTop');
-                
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 500) {
-                        backToTopButton.classList.remove('opacity-0', 'invisible');
-                        backToTopButton.classList.add('opacity-100', 'visible');
-                    } else {
-                        backToTopButton.classList.add('opacity-0', 'invisible');
-                        backToTopButton.classList.remove('opacity-100', 'visible');
+            });
+        })(); // End of IIFE
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 120
+        });
+
+        
+        // GSAP animations
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Parallax effect for hero section
+                gsap.to('.hero-image', {
+                    y: 50,
+                    scrollTrigger: {
+                        trigger: '.hero-image',
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
                     }
                 });
-                
-                backToTopButton.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Animated numbers
-                const animatedNumbers = document.querySelectorAll('.animated-number');
-                
-                const observerCallback = (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                };
-                
-                const observer = new IntersectionObserver(observerCallback, {
-                    threshold: 0.5
-                });
-                
-                animatedNumbers.forEach(number => {
-                    observer.observe(number);
-                });
-                
-                // Custom cursor functionality (for desktop only)
-                if (window.matchMedia("(min-width: 768px)").matches) {
-                    const cursor = document.getElementById('cursor');
-                    const links = document.querySelectorAll('a, button, .interactive');
-                    
-                    document.addEventListener('mousemove', function(e) {
-                        cursor.style.left = e.clientX + 'px';
-                        cursor.style.top = e.clientY + 'px';
-                    });
-                    
-                    document.addEventListener('mousedown', function() {
-                        cursor.classList.add('scale-75');
-                    });
-                    
-                    document.addEventListener('mouseup', function() {
-                        cursor.classList.remove('scale-75');
-                    });
-                    
-                    links.forEach(link => {
-                        link.addEventListener('mouseenter', function() {
-                            cursor.classList.add('scale-150', 'bg-opacity-50');
-                        });
-                        
-                        link.addEventListener('mouseleave', function() {
-                            cursor.classList.remove('scale-150', 'bg-opacity-50');
-                        });
-                    });
-                }
-            });
-            
-            // GSAP animations
-            document.addEventListener('DOMContentLoaded', function() {
-                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
-                    
-                    // Parallax effect for hero section
-                    gsap.to('.hero-image', {
-                        y: 50,
-                        scrollTrigger: {
-                            trigger: '.hero-image',
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: true
-                        }
-                    });
-                    
-                    // Animate stats counting up
-                    const stats = document.querySelectorAll('.animated-number');
-                    
-                    stats.forEach(stat => {
-                        const targetValue = parseInt(stat.textContent);
-                        
-                        gsap.fromTo(
-                            stat,
-                            { textContent: 0 },
-                            {
-                                textContent: targetValue,
-                                duration: 2,
-                                ease: 'power1.inOut',
-                                scrollTrigger: {
-                                    trigger: stat,
-                                    start: 'top 80%',
-                                    toggleActions: 'play none none none'
-                                },
-                                onUpdate: function() {
-                                    stat.textContent = Math.ceil(this.targets()[0].textContent);
-                                }
+
+                // Animate stats counting up
+                const stats = document.querySelectorAll('.animated-number');
+
+                stats.forEach(stat => {
+                    const targetValue = parseInt(stat.textContent);
+
+                    gsap.fromTo(
+                        stat,
+                        { textContent: 0 },
+                        {
+                            textContent: targetValue,
+                            duration: 2,
+                            ease: 'power1.inOut',
+                            scrollTrigger: {
+                                trigger: stat,
+                                start: 'top 80%',
+                                toggleActions: 'play none none none'
+                            },
+                            onUpdate: function () {
+                                stat.textContent = Math.ceil(this.targets()[0].textContent);
                             }
-                        );
-                    });
-                }
-            });
-        </script>
-        </body>
-        </html>
+                        }
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
