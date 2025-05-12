@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /Media/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /wp-admin/ # If using WordPress
+Disallow: /login/
+Disallow: /logout/
+Disallow: /*?* # Prevent crawling of URLs with query parameters to avoid duplicate content
+Allow: /*.css$ # Ensure CSS files are crawlable for rendering
+Allow: /*.js$ # Ensure JavaScript files are crawlable for rendering
+Allow: /index.html # Explicitly allow index file in root
+Allow: /*.html$ # Allow all HTML files outside disallowed folders
+
+# Sitemap
+Sitemap: https://www.nexterix.com/sitemap.xml
