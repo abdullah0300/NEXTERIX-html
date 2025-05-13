@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <meta name="description"
+        content="Nexterix is a digital-first startup reshaping logistics and BPO with powerful tech, agile teams, and customer-first solutions.">
+    <meta name="keywords" content="about nexterix, bpo startup, logistics tech startup, trucking software company">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://www.nexterix.com/About.html">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                        darkbg2: '#263238',
+                        grey2: '#F5F5F5',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+
+    <div class="w-full overflow-hidden">
+
+        <!-- Navbar-->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <a href="/"> <img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="FleetSeek.html" class="block px-4 py-2 hover:bg-primary hover:text-white">FleetSeek
+                                CRM</a>
+                        </div>
+                    </li>
+
+                    <!-- Services Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        </div>
+                    </li>
+
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+                </ul>
+
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+            </div>
+
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                        <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                    </div>
+
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="FleetSeek.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">FleetSeek CRM</a>
+                                </div>
+                            </li>
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                    <a href="Digital-Solutions.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                    <a href="Logistics-Tech.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                </div>
+                            </li>
+                            <li><a href="About.html" class="block py-2">About Us</a></li>
+                            <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile CTA -->
+                    <div class="p-5 border-t">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Privacy Policy Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <!-- Header -->
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h1 class="text-4xl font-bold mb-4">Privacy <span class="text-primary">Policy</span></h1>
+                    <p class="text-gray-600">Last Updated: May 14, 2025</p>
+                </div>
+
+                <!-- Introduction -->
+                <div class="bg-lightgray rounded-xl p-8 mb-10 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        At Nexterix, we value your privacy and are committed to protecting your personal information.
+                        This Privacy Policy outlines our practices regarding the collection, use, and safeguarding of
+                        your data when you use our services, particularly for business verification and TCR registration
+                        processes.
+                    </p>
+                </div>
+
+                <!-- Main Content -->
+                <div class="space-y-10" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Business Verification -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            Business Verification
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Our website serves as a platform for business verification as part of the TCR registration
+                            process. The integrity and functionality of our website are essential to comply with the
+                            latest TCR registration requirements.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            We maintain strict protocols to ensure that the verification process is secure, transparent,
+                            and compliant with all applicable regulations.
+                        </p>
+                    </div>
+
+                    <!-- Information Collection -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z">
+                                    </path>
+                                </svg>
+                            </span>
+                            Information Collection and Use
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We collect personal information necessary for business verification and TCR registration.
+                            This may include, but is not limited to, your full name, contact details, and business
+                            information. We use this information exclusively for verification purposes and to fulfill
+                            regulatory requirements.
+                        </p>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 mt-4">
+                            <h3 class="font-semibold text-gray-800 mb-2">Information we may collect:</h3>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                <li>Full name and job title</li>
+                                <li>Business email address and phone numbers</li>
+                                <li>Company name, address, and registration details</li>
+                                <li>Business identification numbers and documentation</li>
+                                <li>Account credentials for our verification services</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Opt-In Consent -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            Opt-In Consent
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            By submitting your information on our website, you consent to us using your personal details
+                            for business verification related to TCR registration. You have the right to withdraw this
+                            consent at any time by contacting us.
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-blue-800">
+                                        You may revoke your consent at any time by sending an email to <a
+                                            href="mailto:info@nexterix.com"
+                                            class="font-medium underline hover:text-blue-600">info@nexterix.com</a> with
+                                        the subject line "Consent Withdrawal" or by using the contact form on our
+                                        website.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Non-Disclosure -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            Non-Disclosure to Third Parties
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We are committed to ensuring that your information is not shared with third parties and
+                            consent with third parties/affiliates or partners. No mobile information will be shared with
+                            third parties/affiliates for marketing/promotional purposes.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            All other categories exclude text messaging originator opt-in data and consent; this
+                            information will not be shared with any third parties.
+                        </p>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded">
+                            <p class="font-medium text-green-800">Our Promise to You:</p>
+                            <p class="text-green-700 mt-1">We will never sell, rent, or lease your personal information
+                                to third parties for their marketing purposes without your explicit consent.</p>
+                        </div>
+                    </div>
+
+                    <!-- Data Security -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            Data Security
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We take the security of your personal information seriously and have implemented stringent
+                            measures to protect your data from unauthorized access, alteration, disclosure, or
+                            destruction.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                    <svg class="w-5 h-5 mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Technical Safeguards
+                                </h3>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>• SSL encryption for all data transfers</li>
+                                    <li>• Secure hosting infrastructure</li>
+                                    <li>• Regular security assessments</li>
+                                    <li>• Advanced firewall protection</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                    <svg class="w-5 h-5 mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z">
+                                        </path>
+                                    </svg>
+                                    Organizational Measures
+                                </h3>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>• Strict access controls</li>
+                                    <li>• Staff privacy training</li>
+                                    <li>• Data handling protocols</li>
+                                    <li>• Regular compliance audits</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Your Rights -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            Your Rights
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            You have the right to access the personal information we hold about you, to correct any
+                            inaccuracies, or to request the deletion of your data. For any such requests, please contact
+                            us using the information provided on our website.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div
+                                class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                <h3 class="font-semibold text-gray-800 mb-2 text-center">Access</h3>
+                                <p class="text-center text-gray-700 text-sm">
+                                    You can request a copy of your personal data that we process.
+                                </p>
+                            </div>
+                            <div
+                                class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                <h3 class="font-semibold text-gray-800 mb-2 text-center">Correction</h3>
+                                <p class="text-center text-gray-700 text-sm">
+                                    You can request that we correct inaccurate or incomplete information.
+                                </p>
+                            </div>
+                            <div
+                                class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                <h3 class="font-semibold text-gray-800 mb-2 text-center">Deletion</h3>
+                                <p class="text-center text-gray-700 text-sm">
+                                    You can request that we delete your personal data in certain circumstances.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="mt-8">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                    </path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                            </span>
+                            Contact Us About Privacy
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            If you have any questions or concerns about our Privacy Policy or how we handle your
+                            personal information, please don't hesitate to contact us:
+                        </p>
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="md:w-1/2 mb-4 md:mb-0">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Privacy Officer</h3>
+                                    <p class="text-gray-700">Nexterix Data Protection Team</p>
+                                    <p class="text-gray-700">117 S Lexington St</p>
+                                    <p class="text-gray-700">Harrisonville, MO 64701-2444</p>
+                                    <p class="text-gray-700 mt-2">
+                                        <a href="mailto:info@nexterix.com"
+                                            class="text-primary hover:underline">info@nexterix.com</a>
+                                    </p>
+                                    <p class="text-gray-700">
+                                        <a href="tel:+14244807774" class="text-primary hover:underline">+1 (424)
+                                            480-7774</a>
+                                    </p>
+                                </div>
+                                <div class="md:w-1/2 bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Response Time</h4>
+                                    <p class="text-gray-700 text-sm">
+                                        We aim to respond to all legitimate privacy-related inquiries within <span
+                                            class="font-medium">48 business hours</span>. Complex requests may require
+                                        additional time, but we will keep you informed throughout the process.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- Footer  -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="FleetSeek.html" class="text-gray-700 hover:text-gray-900">FleetSeek CRM</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a>
+                        </li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital
+                                Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="Blogs.html" class="text-gray-700 hover:text-gray-900">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Open mobile menu
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            // Close mobile menu
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+
+            // Close menu on resize if screen becomes larger
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Custom cursor functionality
+
+        // Card hover animations
+        const cards = document.querySelectorAll('.card-hover');
+        gsap.registerPlugin(ScrollTrigger);
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+
+        // Truck animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to('.truck-animation', {
+            x: 50,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut'
+        });
+    </script>
+    <script>
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                    if (!dropdownContent) return; // Skip if element not found
+
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdownContent.classList.toggle('hidden');
+                    });
+
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdownContent.addEventListener('click', function (e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
+                    });
+                });
+
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                    trigger.addEventListener('click', function () {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+            });
+        })(); // End of IIFE
+    </script>
+</body>
+
+</html>
