@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Technology Solutions | Freight & Trucking Software – Nexterix</title>
+    <meta name="description"
+        content="Optimize your logistics operations with cutting-edge trucking software, freight TMS, and supply chain automation tools by Nexterix.">
+    <meta name="keywords"
+        content="logistics tech, trucking software, freight broker software, dispatch tools, trucking tms software">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://www.nexterix.com/Logistics-Tech.html">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                        darkbg2: '#263238',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+
+    <div class="w-full overflow-hidden">
+
+        <!-- navbar  -->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <a href="/"> <img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="TruckersCall.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">TruckersCall
+                                CRM</a>
+                        </div>
+                    </li>
+
+                    <!-- Services Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="Legal-Services.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Legal Services</a>
+                            <a href="Operations.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Dispatching Services</a>
+                            <a href="Automation.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Automation</a>
+                        </div>
+                    </li>
+
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+                </ul>
+
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+            </div>
+
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                        <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                    </div>
+
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="TruckersCall.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">TruckersCall CRM</a>
+                                </div>
+                            </li>
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="Legal-Services.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Legal Services</a>
+                                    <a href="Operations.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Dispatching Services</a>
+                                    <a href="Automation.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Logistics Automation</a>
+                                </div>
+                            </li>
+                            <li><a href="About.html" class="block py-2">About Us</a></li>
+                            <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile CTA -->
+                    <div class="p-5 border-t">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </nav>>
+
+        <!-- Hero Section -->
+        <section
+            class="relative bg-gradient-to-br from-darkbg via-darkbg2 to-darkbg min-h-[70vh] flex items-center overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="Media/bernd-dittrich-krhseyzjrYk-unsplash.jpg" alt="Trucks on highway"
+                    class="w-full h-full object-cover opacity-20">
+            </div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center text-white">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" data-aos="fade-up">
+                        Professional <span class="text-primary">Truck Dispatch</span> Services
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="200">
+                        Maximize your revenue with 24/7 dispatching support, expert load planning, and route
+                        optimization
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="bg-primary text-white px-8 py-4 rounded-full hover:bg-red-700 transition-all text-lg font-medium">
+                            Start Earning More
+                        </a>
+                        <a href="tel:+1-424-480-7774"
+                            class="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-darkbg transition-all text-lg font-medium flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                </path>
+                            </svg>
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                        Why Choose <span class="text-primary">Nexterix Dispatch</span>
+                    </h2>
+                    <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                        Our experienced dispatchers work as an extension of your team to keep your trucks moving and
+                        profitable
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Benefit 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">24/7 Dispatch Support</h3>
+                        <p class="text-gray-600">Round-the-clock dispatching ensures you never miss profitable loads,
+                            maximizing your earning potential</p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z">
+                                </path>
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Higher Pay Rates</h3>
+                        <p class="text-gray-600">Our expert negotiators secure the best rates for every load, increasing
+                            your revenue per mile</p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Route Optimization</h3>
+                        <p class="text-gray-600">Smart route planning minimizes deadhead miles and maximizes profitable
+                            loaded miles</p>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z">
+                                </path>
+                                <path
+                                    d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Direct Communication</h3>
+                        <p class="text-gray-600">We handle all broker communications, paperwork, and negotiations so you
+                            can focus on driving</p>
+                    </div>
+
+                    <!-- Benefit 5 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="500">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Load Planning</h3>
+                        <p class="text-gray-600">Strategic load planning ensures consistent freight and minimizes
+                            downtime between loads</p>
+                    </div>
+
+                    <!-- Benefit 6 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                        data-aos-delay="600">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Quick Pay Options</h3>
+                        <p class="text-gray-600">Fast payment processing and factoring support to maintain healthy cash
+                            flow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Details Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                            Complete <span class="text-primary">Dispatch Services</span> Package
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                            Everything you need to run a profitable trucking operation, handled by our expert team
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <!-- Left Column -->
+                        <div data-aos="fade-right">
+                            <h3 class="text-2xl font-bold mb-8 text-darkbg2">What We Handle</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg mb-2">Load Board Monitoring</h4>
+                                        <p class="text-gray-600">Continuous monitoring of multiple load boards to find
+                                            the best paying freight that matches your equipment and preferences</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg mb-2">Rate Negotiation</h4>
+                                        <p class="text-gray-600">Expert negotiators work to get you the highest rates
+                                            possible for every load, maximizing your revenue</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg mb-2">Documentation Management</h4>
+                                        <p class="text-gray-600">Handle all paperwork including rate confirmations,
+                                            BOLs, and PODs to ensure smooth operations</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg mb-2">Broker Relations</h4>
+                                        <p class="text-gray-600">Build and maintain relationships with reliable brokers
+                                            and shippers for consistent freight</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div data-aos="fade-left">
+                            <h3 class="text-2xl font-bold mb-8 text-darkbg2">Your Benefits</h3>
+                            <div class="bg-gray-50 rounded-2xl p-8">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                                        <span class="text-gray-700">Average Revenue Increase</span>
+                                        <span class="text-2xl font-bold text-primary">25-40%</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                                        <span class="text-gray-700">Reduced Empty Miles</span>
+                                        <span class="text-2xl font-bold text-primary">
+                                            < 10%</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3 border-b border-gray-200">
+                                        <span class="text-gray-700">Average Response Time</span>
+                                        <span class="text-2xl font-bold text-primary">
+                                            < 5 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3">
+                                        <span class="text-gray-700">Weekly Settlements</span>
+                                        <span class="text-2xl font-bold text-primary">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 p-6 bg-primary bg-opacity-10 rounded-xl">
+                                <p class="text-lg font-semibold text-darkbg2 mb-2">No Long-Term Contracts</p>
+                                <p class="text-gray-600">Flexible month-to-month agreements with no setup fees. Cancel
+                                    anytime with 30 days notice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                            Simple, Transparent <span class="text-primary">Pricing</span>
+                        </h2>
+                        <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                            Pay only a small percentage of gross revenue - we succeed when you succeed
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Owner Operators -->
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+                            data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-darkbg2 text-white p-8 text-center">
+                                <h3 class="text-2xl font-bold mb-2">Owner Operators</h3>
+                                <p class="text-gray-300">Single truck dispatch</p>
+                            </div>
+                            <div class="p-8">
+                                <div class="text-center mb-8">
+                                    <span class="text-5xl font-bold text-primary">5%</span>
+                                    <p class="text-gray-600 mt-2">of gross revenue</p>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        24/7 Dispatch Support
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Dedicated Dispatcher
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Document Management
+                                    </li>
+                                </ul>
+                                <button
+                                    onclick="window.location.href='https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan'"
+                                    class="w-full mt-8 bg-primary text-white py-3 rounded-full hover:bg-red-700 transition-all">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Small Fleets -->
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all relative"
+                            data-aos="fade-up" data-aos-delay="200">
+                            <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-semibold">
+                                Popular</div>
+                            <div class="bg-primary text-white p-8 text-center">
+                                <h3 class="text-2xl font-bold mb-2">Small Fleets</h3>
+                                <p class="text-gray-100">2-5 trucks</p>
+                            </div>
+                            <div class="p-8">
+                                <div class="text-center mb-8">
+                                    <span class="text-5xl font-bold text-primary">4%</span>
+                                    <p class="text-gray-600 mt-2">of gross revenue</p>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Everything in Owner Operator
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Fleet Coordination
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Priority Support
+                                    </li>
+                                </ul>
+                                <button
+                                    onclick="window.location.href='https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan'"
+                                    class="w-full mt-8 bg-primary text-white py-3 rounded-full hover:bg-red-700 transition-all">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Large Fleets -->
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+                            data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-darkbg2 text-white p-8 text-center">
+                                <h3 class="text-2xl font-bold mb-2">Large Fleets</h3>
+                                <p class="text-gray-300">6+ trucks</p>
+                            </div>
+                            <div class="p-8">
+                                <div class="text-center mb-8">
+                                    <span class="text-5xl font-bold text-primary">3%</span>
+                                    <p class="text-gray-600 mt-2">of gross revenue</p>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Everything in Small Fleet
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Dedicated Team
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Custom Solutions
+                                    </li>
+                                </ul>
+                                <button
+                                    onclick="window.location.href='https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan'"
+                                    class="w-full mt-8 bg-primary text-white py-3 rounded-full hover:bg-red-700 transition-all">
+                                    Contact Us
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-darkbg to-darkbg2">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                        Ready to Increase Your <span class="text-primary">Trucking Revenue?</span>
+                    </h2>
+                    <p class="text-xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="200">
+                        Join hundreds of satisfied truckers who have increased their earnings with our professional
+                        dispatch services
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="bg-primary text-white px-8 py-4 rounded-full hover:bg-red-700 transition-all text-lg font-medium">
+                            Start Your Free Trial
+                        </a>
+                        <div class="flex items-center text-white">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                </path>
+                            </svg>
+                            <span class="text-lg">24/7 Dispatch: +1 (424) 480-7774</span>
+                        </div>
+                    </div>
+                    <p class="mt-8 text-sm text-gray-400" data-aos="fade-up" data-aos-delay="600">
+                        No setup fees • No long-term contracts • Cancel anytime
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800
+            });
+        </script>
+    </div>
+
+    <!-- Footer  -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="TruckersCall.html" class="text-gray-700 hover:text-gray-900">TruckersCall CRM</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a>
+                        </li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital
+                                Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="Blogs.html" class="text-gray-700 hover:text-gray-900">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            // Open mobile menu
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            // Close mobile menu
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+
+            // Close menu on resize if screen becomes larger
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+
+        // Card hover animations
+        const cards = document.querySelectorAll('.card-hover');
+        gsap.registerPlugin(ScrollTrigger);
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+
+        // Truck animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to('.truck-animation', {
+            x: 50,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut'
+        });
+    </script>
+    <script>
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                    if (!dropdownContent) return; // Skip if element not found
+
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdownContent.classList.toggle('hidden');
+                    });
+
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdownContent.addEventListener('click', function (e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
+                    });
+                });
+
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                    trigger.addEventListener('click', function () {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+            });
+        })(); // End of IIFE
+    </script>
+</body>
+
+</html>
