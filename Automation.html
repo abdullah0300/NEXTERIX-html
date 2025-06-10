@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPO Outsourcing Services | Call Center & Support Solutions – Nexterix</title>
+    <meta name="description"
+        content="Nexterix offers scalable BPO services including outsourced call centers, customer support & back-office solutions tailored for growing businesses.">
+    <meta name="keywords"
+        content="bpo outsourcing, outsource call center services, bpo companies, offshore call center, business process outsourcing companies">
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="canonical" href="https://www.nexterix.com/BPO.html">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#263238',
+                        grey2: '#F5F5F5',
+                        herobpo: '#D9D9D9',
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</head>
+
+<body class="font-sans">
+
+    <!-- navbar  -->
+    <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+        <!-- Mobile burger menu -->
+        <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+
+        <!-- Logo -->
+        <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+            <a href="/"> <img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center">
+            <ul class="flex space-x-8">
+                <!-- Products Dropdown -->
+                <li class="relative nx-dropdown-container">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_products">
+                        Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="nx_products_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="TruckersCall.html"
+                            class="block px-4 py-2 hover:bg-primary hover:text-white">TruckersCall
+                            CRM</a>
+                    </div>
+                </li>
+
+                <!-- Services Dropdown -->
+                <li class="relative nx-dropdown-container">
+                    <button type="button"
+                        class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                        data-dropdown="nx_services">
+                        Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="nx_services_dropdown"
+                        class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                        <a href="Legal-Services.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Legal
+                            Services</a>
+                        <a href="Operations.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Dispatching
+                            Services</a>
+                        <a href="Automation.html" class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics
+                            Automation</a>
+                    </div>
+                </li>
+
+                <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+            </ul>
+
+            <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+        </div>
+
+        <!-- Mobile menu - hidden by default -->
+        <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+            <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                <!-- Header with close button -->
+                <div class="flex justify-between items-center p-5 border-b">
+                    <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                </div>
+
+                <!-- Mobile menu links -->
+                <div class="p-5 flex-1 overflow-y-auto">
+                    <ul class="space-y-4">
+                        <li class="nx-mobile-dropdown">
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="TruckersCall.html"
+                                    class="block py-1 text-gray-600 hover:text-primary">TruckersCall CRM</a>
+                            </div>
+                        </li>
+                        <li class="nx-mobile-dropdown">
+                            <button type="button"
+                                class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                <a href="Legal-Services.html" class="block py-1 text-gray-600 hover:text-primary">Legal
+                                    Services</a>
+                                <a href="Operations.html"
+                                    class="block py-1 text-gray-600 hover:text-primary">Dispatching Services</a>
+                                <a href="Automation.html" class="block py-1 text-gray-600 hover:text-primary">Logistics
+                                    Automation</a>
+                            </div>
+                        </li>
+                        <li><a href="About.html" class="block py-2">About Us</a></li>
+                        <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mobile CTA -->
+                <div class="p-5 border-t">
+                    <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                        class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero -->
+
+    <section
+        class="relative bg-gradient-to-br from-darkbg via-darkbg2 to-darkbg min-h-[70vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+        </div>
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary opacity-10 rounded-full blur-3xl animate-pulse">
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 opacity-10 rounded-full blur-3xl animate-pulse delay-1000">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <div class="mb-6" data-aos="fade-up">
+                    <span class="bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">LOGISTICS
+                        AUTOMATION</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" data-aos="fade-up" data-aos-delay="200">
+                    TruckersCall CRM & Custom <span class="text-primary">Automation Solutions</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300" data-aos="fade-up" data-aos-delay="400">
+                    Ready-to-use CRM platform plus tailored automation solutions built specifically for your trucking
+                    operations
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                    <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                        class="bg-primary text-white px-8 py-4 rounded-full hover:bg-red-700 transition-all text-lg font-medium">
+                        Get Started Today
+                    </a>
+                    <a href="#solutions"
+                        class="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-darkbg transition-all text-lg font-medium">
+                        Explore Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TruckersCall CRM Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <div class="mb-6">
+                            <h2 class="text-4xl font-bold mb-2">TruckersCall CRM</h2>
+                            <p class="text-xl text-primary font-semibold">Our Flagship Trucking Management Platform</p>
+                        </div>
+                        <p class="text-lg text-gray-600 mb-6">
+                            TruckersCall is our comprehensive CRM solution designed specifically for trucking companies.
+                            It's a complete platform that manages your entire operation from dispatch to delivery.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">Complete Fleet Management</h4>
+                                    <p class="text-gray-600">Track trucks, drivers, loads, and revenue all in one
+                                        centralized platform</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">Intelligent Dispatch System</h4>
+                                    <p class="text-gray-600">Automated load matching and dispatch with real-time driver
+                                        communication</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-primary rounded-full flex-shrink-0 mt-1"></div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">Financial Dashboard</h4>
+                                    <p class="text-gray-600">Real-time revenue tracking, expense management, and
+                                        profitability analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                                class="inline-block bg-primary text-white px-8 py-3 rounded-full hover:bg-red-700 transition-all text-center">
+                                See TruckersCall Demo
+                            </a>
+                            <a href="TruckersCall.html"
+                                class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all text-center">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <div class="relative">
+                            <img src="Media/7069166_3249201 1.png" alt="TruckersCall Dashboard"
+                                class="w-full rounded-2xl shadow-2xl">
+                            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 hidden md:block">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold">Real-Time Updates</p>
+                                        <p class="text-sm text-gray-600">Track every movement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Solutions Section -->
+    <section id="solutions" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                    Custom <span class="text-primary">Automation Solutions</span>
+                </h2>
+                <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                    Beyond TruckersCall, we build tailored automation solutions to meet your specific operational needs
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Solution 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fleet Tracking Integration</h3>
+                    <p class="text-gray-600 mb-4">Custom GPS tracking solutions integrated with your existing systems
+                        for real-time fleet visibility</p>
+                    <p class="text-sm text-primary font-semibold">Built to Your Specifications</p>
+                </div>
+
+                <!-- Solution 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z">
+                            </path>
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Automated Billing Systems</h3>
+                    <p class="text-gray-600 mb-4">Custom invoicing and payment processing workflows designed for your
+                        specific billing requirements</p>
+                    <p class="text-sm text-primary font-semibold">Tailored to Your Process</p>
+                </div>
+
+                <!-- Solution 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                            <path fill-rule="evenodd"
+                                d="M4 5a2 2 0 012-2 1 1 0 000 2H6a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2h4a2 2 0 002-2V7a2 2 0 00-2-2h-1a1 1 0 110-2h1a4 4 0 014 4v6a4 4 0 01-4 4h-4a4 4 0 01-4-4H6a4 4 0 01-4-4V7a4 4 0 014-4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Document Management</h3>
+                    <p class="text-gray-600 mb-4">Digital document workflows for BOLs, PODs, and compliance documents
+                        customized for your needs</p>
+                    <p class="text-sm text-primary font-semibold">Custom Workflow Design</p>
+                </div>
+
+                <!-- Solution 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Custom Reporting Dashboards</h3>
+                    <p class="text-gray-600 mb-4">Analytics and reporting tools built specifically for your KPIs and
+                        business metrics</p>
+                    <p class="text-sm text-primary font-semibold">Your Metrics, Your Way</p>
+                </div>
+
+                <!-- Solution 5 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="500">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">API Integrations</h3>
+                    <p class="text-gray-600 mb-4">Connect your existing tools and systems with custom API development
+                        and integration services</p>
+                    <p class="text-sm text-primary font-semibold">Seamless Connectivity</p>
+                </div>
+
+                <!-- Solution 6 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all" data-aos="fade-up"
+                    data-aos-delay="600">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Driver Mobile Apps</h3>
+                    <p class="text-gray-600 mb-4">Custom mobile applications for drivers with features specific to your
+                        operational needs</p>
+                    <p class="text-sm text-primary font-semibold">Designed for Your Drivers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                        How We Build <span class="text-primary">Your Solution</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        Every trucking operation is unique. We create custom automation solutions that fit your specific
+                        workflows and requirements.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                    1</div>
+                                <div class="ml-6">
+                                    <h3 class="text-xl font-bold mb-2">Discovery & Analysis</h3>
+                                    <p class="text-gray-600">We start by understanding your current operations, pain
+                                        points, and automation goals</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                    2</div>
+                                <div class="ml-6">
+                                    <h3 class="text-xl font-bold mb-2">Custom Solution Design</h3>
+                                    <p class="text-gray-600">Our team designs a tailored automation solution that
+                                        integrates seamlessly with your workflow</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                    3</div>
+                                <div class="ml-6">
+                                    <h3 class="text-xl font-bold mb-2">Development & Testing</h3>
+                                    <p class="text-gray-600">We build and rigorously test your custom solution to ensure
+                                        reliability and performance</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                    4</div>
+                                <div class="ml-6">
+                                    <h3 class="text-xl font-bold mb-2">Implementation & Support</h3>
+                                    <p class="text-gray-600">We handle deployment, training, and provide ongoing support
+                                        to ensure success</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <div class="bg-gray-50 rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold mb-6">What Makes Us Different</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Trucking industry expertise</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">No one-size-fits-all solutions</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Scalable, future-proof technology</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Ongoing support and updates</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Integration with existing systems</span>
+                                </div>
+                            </div>
+                            <div class="mt-8 p-4 bg-primary/10 rounded-lg">
+                                <p class="text-sm text-gray-700">
+                                    <strong>Note:</strong> Every automation solution is built from scratch to match your
+                                    exact requirements. No templates, no compromises.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black from-primary ">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">
+                    Ready to Automate Your Trucking Operations?
+                </h2>
+                <p class="text-xl mb-8 text-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    Whether you need our ready-to-use TruckersCall CRM or a custom automation solution, we're here to
+                    help transform your business
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                        class="bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-all text-lg font-medium">
+                        Schedule Free Consultation
+                    </a>
+                    <a href="tel:+1-424-480-7774"
+                        class="border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-primary transition-all text-lg font-medium flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                            </path>
+                        </svg>
+                        Call: +1 (424) 480-7774
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+    </script>
+
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+    </script>
+
+
+    <!-- Footer  -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Complete Logistics Solutions: Legal Services, Dispatching, and Fleet Management Software for
+                        Trucking Companies
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="TruckersCall.html" class="text-gray-700 hover:text-gray-900">TruckersCall CRM</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="Legal-Services.html" class="text-gray-700 hover:text-gray-900">Legal Services</a>
+                        </li>
+                        <li><a href="Operations.html" class="text-gray-700 hover:text-gray-900">Dispatch Services</a>
+                        </li>
+                        <li><a href="Automation.html" class="text-gray-700 hover:text-gray-900">Logistics Automation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="Blogs.html" class="text-gray-700 hover:text-gray-900">Blogs</a></li>
+                        <li><a href="Privacy-Policy.html" class="text-gray-700 hover:text-gray-900">Privacy </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Custom cursor functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursor = document.getElementById('cursor');
+            const allLinks = document.querySelectorAll('a, button, .interactive');
+
+            document.addEventListener('mousemove', function (e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            document.addEventListener('mousedown', function () {
+                cursor.classList.add('active');
+            });
+
+            document.addEventListener('mouseup', function () {
+                cursor.classList.remove('active');
+            });
+
+            allLinks.forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    cursor.classList.add('button-hover');
+                });
+
+                link.addEventListener('mouseleave', function () {
+                    cursor.classList.remove('button-hover');
+                });
+            });
+
+            // Reveal images when they enter viewport
+            const revealImages = function () {
+                const imageReveals = document.querySelectorAll('.image-reveal');
+                imageReveals.forEach(image => {
+                    if (isElementInViewport(image) && !image.classList.contains('reveal')) {
+                        setTimeout(() => {
+                            image.classList.add('reveal');
+                        }, 200);
+                    }
+                });
+            };
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+
+            window.addEventListener('scroll', revealImages);
+            window.addEventListener('load', revealImages);
+
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // The lower the slower
+
+            const animateCounter = () => {
+                counters.forEach(counter => {
+                    if (isElementInViewport(counter)) {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(animateCounter, 1);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateCounter);
+            window.addEventListener('load', animateCounter);
+        });
+    </script>
+
+    <script>
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                    if (!dropdownContent) return; // Skip if element not found
+
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdownContent.classList.toggle('hidden');
+                    });
+
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdownContent.addEventListener('click', function (e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
+                    });
+                });
+
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                    trigger.addEventListener('click', function () {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+            });
+        })(); // End of IIFE
+    </script>
+
+</body>
+
+</html>
