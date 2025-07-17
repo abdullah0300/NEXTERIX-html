@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexterix vs. Do-It-Yourself: Why New Trucking Companies Are Choosing Experience Over Costly Mistakes | Nexterix</title>
+    <meta name="description"
+        content="Discover why new trucking companies are choosing Nexterix over risky DIY approaches to avoid costly compliance and operational mistakes.">
+    <meta name="keywords"
+        content="Nexterix, Trucking Startups, FMCSA Compliance, MC Number, Freight Factoring, Autonomous Trucking, Logistics Expertise">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <link rel="canonical" href="https://www.nexterix.com/blog/nexterix-vs-diy">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                        darkbg2: '#263238',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+    <div class="w-full overflow-hidden">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <a href="/"> <img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="TruckersCall.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">TruckersCall CRM</a>
+                        </div>
+                    </li>
+                    <!-- Services Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        </div>
+                    </li>
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="blog.html" class="text-gray-800 hover:text-primary font-medium">Blog</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+                </ul>
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+            </div>
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                        <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                    </div>
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="TruckersCall.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">TruckersCall CRM</a>
+                                </div>
+                            </li>
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                    <a href="Digital-Solutions.html"
+                                        <li><a href="blog.html" class="block py-2 font-medium">Blog</a></li>
+                                    <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <!-- Mobile CTA -->
+                            <div class="p-5 border-t">
+                                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                                    class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Breadcrumbs -->
+                <div class="bg-lightgray py-4">
+                    <div class="container mx-auto px-4">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <a href="/" class="hover:text-primary">Home</a>
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <a href="blog.html" class="hover:text-primary">Blog</a>
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-800">Nexterix vs. Do-It-Yourself: Why New Trucking Companies Are Choosing Experience Over Costly Mistakes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Header -->
+                <section class="py-12 bg-white">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-3xl mx-auto">
+                            <div class="flex items-center mb-4" data-aos="fade-up">
+                                <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">TRUCKING STARTUPS</span>
+                                <span class="ml-3 text-gray-500 text-sm">June 25, 2025</span>
+                            </div>
+                            <h1 class="text-4xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">Nexterix vs. Do-It-Yourself: Why New Trucking Companies Are Choosing Experience Over Costly Mistakes</h1>
+                            <div class="flex items-center mb-8" data-aos="fade-up" data-aos-delay="200">
+                                <img src="/Media/dua.jpeg" alt="Dua" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <p class="font-medium">Dua</p>
+                                    <p class="text-sm text-gray-500">Logistics Technology Expert</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Featured Image -->
+                        <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+                            <img src="/Media/Nexterix vs. Do-It-Yourself Why New Trucking Companies Are Choosing Experience Over Costly Mistakes.png" alt="Nexterix vs DIY" class="w-full h-[400px] object-cover rounded-xl shadow-lg">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Article Content -->
+                <section class="py-12 bg-white">
+                    <div class="container mx-auto px-4">
+                        <div class="max-w-3xl mx-auto">
+                            <!-- Article Body -->
+                            <div class="prose prose-lg max-w-none mb-12" data-aos="fade-up">
+                                <p>The trucking industry is a great place for entrepreneurs to start new businesses. The U.S. freight market is worth $875 billion, and e-commerce is growing quickly. The harsh truth is that 63% of new carriers go out of business within 18 months, usually because they can’t keep up with compliance issues, cash flow problems, and mistakes in their operations. When startups have to deal with the maze of FMCSA rules, insurance problems, and technology choices, they face a tough choice: try a risky do-it-yourself approach or work with experts like Nexterix. The growing shift from self-management to professional help shows a basic truth about the industry: expertise isn’t a cost, it’s an investment in survival.</p>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">The Secret Costs of DIY That Kill Startups</h2>
+                                <p>The surface-level appeal of getting authority on your own hides dangerous traps. Think about how to apply for an MC number. The $300 FMCSA fee seems simple, but people who do it themselves often miss important steps. BOC-3 filings for legal representation across states add unexpected costs, and the 21-day insurance submission window is a common failure point that voids applications if missed.</p>
+
+                                <br>
+
+                                <p>The new 2025 Unified Carrier Registration fees have gone up by 25%, which means that the cost of registering a fleet will vary depending on its size. These mistakes cause weeks of delays and thousands of dollars in consultant fees to fix, which stops progress before operations even start. Operational blind spots are just as bad. Founders who don’t have industry connections often don’t realize how complicated factoring can be when they have to choose between companies like RTS Financial and Porter Freight. When ELD and TMS systems don’t work together, productivity drops by 23%, making technology integration even harder.</p>
+                            
+                                <br>
+                                
+                                When you can’t get to vetted talent pools, it becomes even harder to hire drivers, which leads to 40% turnover rates that make new operations unstable. The story of Iron Horse Logistics, based in Atlanta, is a perfect example of this. They got their authority and then forgot about Texas HUT permits, which cost them $18,200 in back taxes—wiping out six months of hard-earned profits overnight.</p>
+                               
+                                <br>
+
+                                <p><a href="/blog/how-to-start trucking-company-2025" class="text-primary hover:underline">Read more: How to Start a Trucking Company in the U.S. (Checklist for 2025)</a></p>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">How Working with Experts Can Help You Succeed Faster</h2>
+                                <p>Specialized companies like Nexterix speed up the startup process by providing structured phases of support. During the important authority activation stage (days 0–30), expert-guided startups skip application purgatory by working with pre-vetted insurance partners who guarantee coverage within 48 hours.</p>
+                                <br>
+                                <p>They combine state-specific registrations like New York HUT and Kentucky UCR into a single workflow while making sure that MC/DOT and BOC-3 filings are always in sync. This all-in-one service lets businesses like Denver Freight Co. get their authority up and running in 10 days instead of 45+, and they can start booking loads that make money by week three.</p>
+
+                                <br>
+
+                                <p>The next phase, which lasts from days 30 to 90, is all about running the business in a way that lasts. Experts use integrated financial and technology stacks that include freight factoring solutions with custom advances tailored to each customer’s needs, such as putting fuel costs or repair reserves first.</p>
+
+                                <br>
+
+                                <p>AI-powered load boards use past rate data to filter out high-margin lanes, and pre-configured ELD systems ensure that Hours of Service rules are followed right away. Great Lakes Carriers had an amazing 92% trailer utilization rate in their first quarter thanks to this ecosystem.</p>
+
+                                <br>
+
+                                <p>For established startups (90 days or more), the focus changes to growth that can be scaled and reducing risk. Driver compliance portals make it easier to keep track of drug testing pools, training records, and licenses. Predictive maintenance systems cut down on breakdowns by 37% by predicting when parts will fail. Platforms like Freightos also do integrated broker credit checks to stop clients who don’t pay from messing up cash flow.</p>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">Autonomous Technology: The Need for Expertise</h2>
+                                <p>The rise of AI and self-driving trucks forces startups to make big choices about their future. Goldman Sachs says that self-driving cars could put 300,000 people out of work every year, and the Teamsters Union is fighting a law that would let trucks drive themselves without safety operators.</p>
+
+                                <br>
+
+                                <p>Professional advisors help people through this change by finding hybrid human/AI roles, such as remote truck monitoring specialists. They check out certified autonomous partners like Torc Robotics, putting a lot of emphasis on sensor redundancy and physics-based safety layers. At the same time, they offer re-skilling programs that help drivers move into logistics management roles.</p>
+
+
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">Quantifying the Expertise Advantage</h2>
+                                <div class="overflow-x-auto">
+                                    <table class="table-auto w-full border-collapse border border-gray-300">
+                                        <thead>
+                                            <tr class="bg-gray-100">
+                                                <th class="border border-gray-300 px-4 py-2">Performance Metric</th>
+                                                <th class="border border-gray-300 px-4 py-2">DIY Startups</th>
+                                                <th class="border border-gray-300 px-4 py-2">Expert-Guided Startups</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="border border-gray-300 px-4 py-2">Authority Activation Timeline</td>
+                                                <td class="border border-gray-300 px-4 py-2">45–60 days</td>
+                                                <td class="border border-gray-300 px-4 py-2">7–10 days</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-4 py-2">Time to First Revenue</td>
+                                                <td class="border border-gray-300 px-4 py-2">8+ weeks</td>
+                                                <td class="border border-gray-300 px-4 py-2">&lt; 3 weeks</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-4 py-2">First-Year Compliance Fines</td>
+                                                <td class="border border-gray-300 px-4 py-2">$12,700 average</td>
+                                                <td class="border border-gray-300 px-4 py-2">$0 (proactive prevention)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-4 py-2">Freight Factoring Rates</td>
+                                                <td class="border border-gray-300 px-4 py-2">3–5% per load</td>
+                                                <td class="border border-gray-300 px-4 py-2">1.2–2.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-gray-300 px-4 py-2">18-Month Survival Rate</td>
+                                                <td class="border border-gray-300 px-4 py-2">37%</td>
+                                                <td class="border border-gray-300 px-4 py-2">89%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">Navigating Economic Uncertainty</h2>
+                                <p>In today’s unstable freight market, where diesel prices can change a lot and demand patterns shift without warning, startups that get help from experts become much more resilient. Dynamic pricing tools use real-time fuel surcharge indexes to automatically adjust prices. Lane identification that can withstand a recession focuses on stable sectors like medical equipment and basic goods. Debt restructuring advisors may be most important because they renegotiate equipment loans during downturns, turning possible failures into slowdowns that can be survived. Dustin Koehl, COO of Covenant Logistics, said, “Autonomy isn’t replacing trucking; it’s changing it.” In this new world, startups that hire experts will rule.</p>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">The Final Mile: Using Knowledge to Get Ahead of the Competition</h2>
+                                <p>The world of trucking startups has changed in big ways. In the past, all you needed was grit and a single truck. Now, you need to navigate autonomous disruption, hyper-specialized compliance, and supply chain volatility with precision. While DIY methods promise freedom, they often lead to false savings, like when a $300 filing mistake turns into a six-figure debt.</p>
+
+                                <br>
+
+                                <p>Platforms like Nexterix act as force multipliers by shortening launch times from months to weeks, lowering the risk of technology investments, and giving founders access to institutional knowledge that most don’t have. In an industry where a 3% profit margin can mean the difference between success and failure, professional partnerships are not a luxury; they are the tools that startups need to stay alive. “You might save $500 by filing your BOC-3, but you could lose $50,000 if a lawsuit gets through your LLC,” said one lawyer in the industry. Knowing where expertise pays big dividends is what true efficiency is all about.</p>
+                                <p>Discover how Nexterix can streamline your startup process and protect your business from costly mistakes. <a href="https://www.nexterix.com/contact" class="text-primary hover:underline">Book a free demo today</a> to learn more.</p>
+
+                                <h2 class="text-2xl font-bold mt-10 mb-4">Frequently Asked Questions</h2>
+                                <h3 class="text-xl font-semibold mt-8 mb-4">Are online legal templates good enough to handle my LLC and MC filings?</h3>
+                                <p>Standard templates don’t often cover state-specific details like California’s CARB reporting or New York’s HUT decal requirements. One missing clause can make your personal property open to lawsuits. Professionally filed entities have customized operating agreements that protect personal and business assets from each other.</p>
+
+                                <h3 class="text-xl font-semibold mt-8 mb-4">Isn’t it a lot more expensive to get professional help than to do it yourself?</h3>
+                                <p>Surprisingly, having expertise saves about $18,000 in the first year alone by stopping IRS penalties for misclassifying S-Corps, avoiding factoring rate markups, preventing insurance underwriting mistakes, and stopping unnecessary software subscriptions. By month six, the long-term ROI is very positive.</p>
+
+                                <h3 class="text-xl font-semibold mt-8 mb-4">What do experts do when they buy autonomous technology?</h3>
+                                <p>Experts check systems for important things like sensor redundancy standards (like Torc Robotics’ 50% fail-operational design), how well they fit with the FMCSA’s changing autonomous frameworks, and how easy it is to add driver retraining programs that turn displaced workers into logistics coordinators and remote operations managers.</p>
+
+                                <h3 class="text-xl font-semibold mt-8 mb-4">Can experts save startups that are already having trouble following the rules?</h3>
+                                <p>Yes, for sure. Compliance rescue services fix missed IRP/FIle returns, get back revoked MC numbers through FMCSA reconsideration petitions, and replace unfair factoring contracts with ones that are fair. Most remediation projects fix important problems within 30 days.</p>
+
+                                <h3 class="text-xl font-semibold mt-8 mb-4">What about new businesses that don’t have much money to work with?</h3>
+                                <p>Expert firms offer phased engagement models. They start with compliance-only support at lower entry points and then move up to operational guidance as revenue stabilizes. Some offer revenue-sharing options that let you put off paying fees until the loads start making money.</p>
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Nexterix</span>
+                                <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Trucking Startups</span>
+                                <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">FMCSA Compliance</span>
+                                <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Freight Factoring</span>
+                                <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Autonomous Trucking</span>
+                            </div>
+
+                            <!-- Author Bio -->
+                            <div class="bg-lightgray p-6 rounded-xl mb-12">
+                                <div class="flex items-start">
+                                    <img src="/Media/dua.jpeg" alt="Dua" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2">About the Author</h3>
+                                        <p class="font-medium">Dua</p>
+                                        <p class="text-sm text-gray-600 mb-3">Logistics Technology Expert</p>
+                                        <p class="text-gray-700">
+                                            Dua has over 15 years of experience in logistics technology. She specializes in
+                                            applications for supply chain optimization and frequently speaks at industry
+                                            conferences. Prior to joining Nexterix, Dua worked as a logistics consultant for
+                                            Fortune 500 companies.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="bg-gray-100">
+                <div class="container mx-auto px-4 py-12">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <!-- Logo and Description Column -->
+                        <div class="col-span-2 md:col-span-1">
+                            <div class="flex items-center justify-center md:justify-start mb-4">
+                                <a href="https://www.nexterix.com/"><img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX"
+                                        class="h-10"></a>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-center md:text-left">
+                                Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                            </p>
+                            <!-- Social Icons -->
+                            <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                                <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Products Column -->
+                        <div class="col-span-1">
+                            <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                            <ul class="space-y-2 text-center md:text-left">
+                                <li><a href="TruckersCall.html" class="text-gray-700 hover:text-gray-900">TruckersCall CRM</a></li>
+                            </ul>
+                        </div>
+                        <!-- Services Column -->
+                        <div class="col-span-1">
+                            <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                            <ul class="space-y-2 text-center md:text-left">
+                                <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                                <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
+                                <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                            </ul>
+                        </div>
+                        <!-- About Column -->
+                        <div class="col-span-1">
+                            <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                            <ul class="space-y-2 text-center md:text-left">
+                                <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                                <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                                <li><a href="blog.html" class="text-gray-700 hover:text-gray-900">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Copyright Bar -->
+                <div class="bg-red-500 text-white text-center py-4">
+                    <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                                href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+                </div>
+            </footer>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+            <script>
+                // Initialize AOS animation library
+                AOS.init({
+                    once: true,
+                    offset: 100,
+                    duration: 800
+                });
+
+                // Mobile menu toggle functionality
+                document.addEventListener('DOMContentLoaded', function () {
+                    const menuToggle = document.getElementById('nx_menuToggle');
+                    const closeMenu = document.getElementById('nx_closeMenu');
+                    const mobileMenu = document.getElementById('nx_mobileMenu');
+
+                    // Open mobile menu
+                    menuToggle.addEventListener('click', function () {
+                        mobileMenu.classList.remove('hidden');
+                        mobileMenu.classList.add('flex');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                    });
+
+                    // Close mobile menu
+                    closeMenu.addEventListener('click', function () {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+
+                    // Close menu on resize if screen becomes larger
+                    window.addEventListener('resize', function () {
+                        if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                });
+
+                // Desktop Dropdowns
+                document.addEventListener('DOMContentLoaded', function () {
+                    // ----- Desktop Dropdowns -----
+                    const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+                    // Add click handlers to each dropdown trigger
+                    nxDropdownTriggers.forEach(trigger => {
+                        const dropdownId = trigger.getAttribute('data-dropdown');
+                        const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                        if (!dropdownContent) return; // Skip if element not found
+
+                        // Click handler for dropdown trigger
+                        trigger.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation(); // Prevent document click from immediately closing
+
+                            // Close all other dropdowns
+                            document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                                if (dropdown !== dropdownContent) {
+                                    dropdown.classList.add('hidden');
+                                }
+                            });
+
+                            // Toggle current dropdown
+                            dropdownContent.classList.toggle('hidden');
+                        });
+
+                        // Prevent dropdown content clicks from closing the dropdown
+                        dropdownContent.addEventListener('click', function (e) {
+                            e.stopPropagation(); // Don't let clicks bubble to document
+                        });
+                    });
+
+                    // Close all dropdowns when clicking elsewhere
+                    document.addEventListener('click', function () {
+                        document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                            dropdown.classList.add('hidden');
+                        });
+                    });
+
+                    // ----- Mobile Dropdowns -----
+                    const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                    nxMobileDropdowns.forEach(dropdown => {
+                        const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                        const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                        const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                        if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                        trigger.addEventListener('click', function () {
+                            // Toggle dropdown visibility
+                            content.classList.toggle('hidden');
+                            // Toggle icon rotation
+                            icon.classList.toggle('rotate-180');
+                        });
+                    });
+                });
+            </script>
+        </body>
+    </html>
