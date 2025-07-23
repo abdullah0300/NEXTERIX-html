@@ -1503,7 +1503,19 @@
         </div>
     </section>
 
-    <!-- Footer  -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/687809a26e6a44190d6ed64a/1j0aeb91g';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script--> <!-- Footer  -->
     <footer class="bg-gray-100">
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -1577,86 +1589,86 @@
         </div>
     </footer>
     <script>
-            (function () {
-                // Immediately invoked function to create closure and avoid global scope contamination
-                document.addEventListener('DOMContentLoaded', function () {
-                    // ----- Desktop Dropdowns -----
-                    const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+        (function () {
+            // Immediately invoked function to create closure and avoid global scope contamination
+            document.addEventListener('DOMContentLoaded', function () {
+                // ----- Desktop Dropdowns -----
+                const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
 
-                    // Add click handlers to each dropdown trigger
-                    nxDropdownTriggers.forEach(trigger => {
-                        const dropdownId = trigger.getAttribute('data-dropdown');
-                        const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+                // Add click handlers to each dropdown trigger
+                nxDropdownTriggers.forEach(trigger => {
+                    const dropdownId = trigger.getAttribute('data-dropdown');
+                    const dropdownContent = document.getElementById(dropdownId + '_dropdown');
 
-                        if (!dropdownContent) return; // Skip if element not found
+                    if (!dropdownContent) return; // Skip if element not found
 
-                        // Click handler for dropdown trigger
-                        trigger.addEventListener('click', function (e) {
-                            e.preventDefault();
-                            e.stopPropagation(); // Prevent document click from immediately closing
+                    // Click handler for dropdown trigger
+                    trigger.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent document click from immediately closing
 
-                            // Close all other dropdowns
-                            document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
-                                if (dropdown !== dropdownContent) {
-                                    dropdown.classList.add('hidden');
-                                }
-                            });
-
-                            // Toggle current dropdown
-                            dropdownContent.classList.toggle('hidden');
-                        });
-
-                        // Prevent dropdown content clicks from closing the dropdown
-                        dropdownContent.addEventListener('click', function (e) {
-                            e.stopPropagation(); // Don't let clicks bubble to document
-                        });
-                    });
-
-                    // Close all dropdowns when clicking elsewhere
-                    document.addEventListener('click', function () {
+                        // Close all other dropdowns
                         document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
-                            dropdown.classList.add('hidden');
+                            if (dropdown !== dropdownContent) {
+                                dropdown.classList.add('hidden');
+                            }
                         });
+
+                        // Toggle current dropdown
+                        dropdownContent.classList.toggle('hidden');
                     });
 
-                    // ----- Mobile Menu -----
-                    const nxMenuToggle = document.getElementById('nx_menuToggle');
-                    const nxCloseMenu = document.getElementById('nx_closeMenu');
-                    const nxMobileMenu = document.getElementById('nx_mobileMenu');
-
-                    if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
-                        // Open mobile menu
-                        nxMenuToggle.addEventListener('click', function () {
-                            nxMobileMenu.classList.remove('hidden');
-                            document.body.style.overflow = 'hidden'; // Prevent scrolling
-                        });
-
-                        // Close mobile menu
-                        nxCloseMenu.addEventListener('click', function () {
-                            nxMobileMenu.classList.add('hidden');
-                            document.body.style.overflow = ''; // Restore scrolling
-                        });
-                    }
-
-                    // ----- Mobile Dropdowns -----
-                    const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
-
-                    nxMobileDropdowns.forEach(dropdown => {
-                        const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
-                        const content = dropdown.querySelector('.nx-mobile-dropdown-content');
-                        const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
-
-                        if (!trigger || !content || !icon) return; // Skip if elements not found
-
-                        trigger.addEventListener('click', function () {
-                            // Toggle dropdown visibility
-                            content.classList.toggle('hidden');
-                            // Toggle icon rotation
-                            icon.classList.toggle('rotate-180');
-                        });
+                    // Prevent dropdown content clicks from closing the dropdown
+                    dropdownContent.addEventListener('click', function (e) {
+                        e.stopPropagation(); // Don't let clicks bubble to document
                     });
                 });
-            })(); // End of IIFE
+
+                // Close all dropdowns when clicking elsewhere
+                document.addEventListener('click', function () {
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                    });
+                });
+
+                // ----- Mobile Menu -----
+                const nxMenuToggle = document.getElementById('nx_menuToggle');
+                const nxCloseMenu = document.getElementById('nx_closeMenu');
+                const nxMobileMenu = document.getElementById('nx_mobileMenu');
+
+                if (nxMenuToggle && nxCloseMenu && nxMobileMenu) {
+                    // Open mobile menu
+                    nxMenuToggle.addEventListener('click', function () {
+                        nxMobileMenu.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    });
+
+                    // Close mobile menu
+                    nxCloseMenu.addEventListener('click', function () {
+                        nxMobileMenu.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    });
+                }
+
+                // ----- Mobile Dropdowns -----
+                const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+                nxMobileDropdowns.forEach(dropdown => {
+                    const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                    const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                    const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                    if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                    trigger.addEventListener('click', function () {
+                        // Toggle dropdown visibility
+                        content.classList.toggle('hidden');
+                        // Toggle icon rotation
+                        icon.classList.toggle('rotate-180');
+                    });
+                });
+            });
+        })(); // End of IIFE
     </script>
 
     <!-- Scripts -->
