@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch Revolution: Ditch Spreadsheet Chaos for Smarter Load Management | Nexterix</title>
+    <meta name="description"
+        content="Discover how Nexterix's load management solutions revolutionize dispatch operations, replacing spreadsheets with automation, real-time tracking, and seamless communication.">
+    <meta name="keywords"
+        content="Nexterix, Dispatch Automation, Load Management, Transportation Management System, Real-time Tracking, Trucking Automation, Logistics Software">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <link rel="canonical" href="https://www.nexterix.com/blog/dispatch-revolution">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                        darkbg2: '#263238',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+    <div class="w-full overflow-hidden">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <a href="/"> <img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="TruckersCall.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">TruckersCall CRM</a>
+                        </div>
+                    </li>
+                    <!-- Services Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        </div>
+                    </li>
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="blog.html" class="text-gray-800 hover:text-primary font-medium">Blog</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+                </ul>
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+            </div>
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                        <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                    </div>
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="TruckersCall.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">TruckersCall CRM</a>
+                                </div>
+                            </li>
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                    <a href="Digital-Solutions.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                    <a href="Logistics-Tech.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                </div>
+                            </li>
+                            <li><a href="About.html" class="block py-2">About Us</a></li>
+                            <li><a href="blog.html" class="block py-2 font-medium">Blog</a></li>
+                            <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Mobile CTA -->
+                    <div class="p-5 border-t">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <div class="bg-lightgray py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center text-sm text-gray-600">
+                    <a href="/" class="hover:text-primary">Home</a>
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="blog.html" class="hover:text-primary">Blog</a>
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-800">Dispatch Revolution: Ditch Spreadsheet Chaos for Smarter Load Management</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Header -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="flex items-center mb-4" data-aos="fade-up">
+                        <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">DISPATCH AUTOMATION</span>
+                        <span class="ml-3 text-gray-500 text-sm">July 25, 2025</span>
+                    </div>
+                    <h1 class="text-4xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">Dispatch Revolution: Ditch Spreadsheet Chaos for Smarter Load Management</h1>
+                    <div class="flex items-center mb-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="/Media/dua.jpeg" alt="Dua" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <p class="font-medium">Dua</p>
+                            <p class="text-sm text-gray-500">Logistics Technology Expert</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Featured Image -->
+                <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/Media/Dispatch Revolution Ditch Spreadsheet Chaos for Smarter Load Management (1).png" alt="Dispatch Automation" class="w-full h-[400px] object-cover rounded-xl shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <!-- Article Body -->
+                    <div class="prose prose-lg max-w-none mb-12" data-aos="fade-up">
+                        <p>Dispatch operations used to rely heavily on spreadsheets. However, in today's fast-paced logistics world, using manual spreadsheets can lead to delays, errors, and missed opportunities. Dispatchers must manage a multitude of moving parts, including drivers, loads, routes, deadlines, customer needs, and unexpected issues.</p>
+                        <p>When important information is stuck in static rows and columns, productivity drops, communication breaks down, and profits drop. It's time to stop using spreadsheets and start using smart load management solutions that are made for the present day.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Why Your Dispatch Operation Isn't Working as Well as It Could Be with Spreadsheets</h2>
+                        <p>Spreadsheets just weren't made to handle the fast-paced, real-time needs of modern dispatch. Because they need to be updated by hand all the time, they can make expensive mistakes like double-booking drivers or missing important deadlines. Version control turns into a nightmare, and it gets even worse when more than one person needs access.</p>
+                        <br>
+                        <p>It's hard to see what's going on with the fleet, where the drivers are, or any possible delays, because you have to do a lot of sorting. Most importantly, spreadsheets don't have automation, which means that dispatchers have to waste time on repetitive tasks like updating the status and basic communication instead of finding and fixing problems and making routes better. This reactive mode stops growth and makes both dispatchers and drivers angry.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">The Smart Way: New Load Management Platforms</h2>
+                        <p>The other option is software made just for dispatch and load management. These platforms are like the brain of your business, bringing together communication tools, automation, and real-time data into one easy-to-use interface.</p>
+                        <br>
+                        <p>Think about being able to see where every truck is on a live map right away, automatically assigning the closest available driver to a new load based on their skills and hours of service, and getting alerts about possible delays because of traffic or weather. Integrated messaging or mobile apps make it easy for dispatchers, drivers, and customers to talk to each other.</p>
+                        <br>
+                        <p>This gets rid of phone tag and lost messages. Automated workflows take care of boring tasks like sending out confirmations for pickups and deliveries, and updating load statuses. This lets dispatchers focus on optimizing strategies and handling exceptions.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">The Main Reasons to Upgrade Your Dispatch System</h2>
+                        <p>Getting away from spreadsheets brings about big changes. When automation cuts down on manual data entry and repetitive tasks, productivity goes through the roof. Real-time tracking gives you a level of visibility into every load and asset that has never been possible before. This lets you make decisions ahead of time and greatly improves on-time performance.</p>
+                        <br>
+                        <p>Automated communication makes sure that both drivers and customers are always up to date, which greatly increases satisfaction. Dispatchers get powerful tools that help them change routes on the fly, make the most of truck space, and cut down on empty miles, all of which have a direct effect on the bottom line. Centralized digital records also make it easier to report compliance and give you useful data analytics for ongoing improvement.</p>
+                        <br>
+                        <p><b><a href="/blog/fmcsa-compliance" class="text-primary hover:underline">Read More: FMCSA Compliance Checklist: Avoid $16k/Day Fines for Trucking Companies</a></b></p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Switching: It's Easier Than You Think</h2>
+                        <p>It might seem hard to move away from spreadsheets, but modern cloud-based solutions are made to be easy to set up and use. The best platforms have easy-to-use interfaces that are similar to apps you already know, which makes learning them easier. Your team will feel confident quickly, thanks to thorough training and customer support that is always there for you.</p>
+                        <br>
+                        <p>Scalability means that the platform can grow with your business, so you won't have to go through another painful transition. The return on investment is strong, often seen in lower administrative costs, lower detention fees, better fuel efficiency, and the ability to handle more loads with the same or fewer resources.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Accept the Future of Dispatch</h2>
+                        <p>There was a time when spreadsheets were useful, but they are no longer good enough for fast, competitive dispatch operations. Dispatchers need smart, automated, and real-time connectivity to do well in a tough market. Modern load management platforms give them all of these things. You can give your team more power, make your customers happy, make the most of your resources, and open up a lot of room for growth by getting rid of the spreadsheet mess.</p>
+                        <br>
+                        <p><b><a href="https://www.nexterix.com/contact" class="text-primary hover:underline">Discover how Nexterix can transform your dispatch operations today.</a></b></p>
+
+                        <!-- <h2 class="text-2xl font-bold mt-10 mb-4">Frequently Asked Questions</h2>
+                        <h3 class="text-xl font-semibold mt-8 mb-4">Isn't specialized dispatch software too pricey for my small business?</h3>
+                        <p>Not always. A lot of modern solutions have tiered pricing that depends on the size of the fleet or the features needed. Cloud-based SaaS models do away with big upfront costs. The investment is often worth it right away because of the higher return on investment from higher efficiency, fewer mistakes, and better use of resources, even for smaller fleets. To get a better idea of how much your current spreadsheet problems (time, mistakes, detention) are costing you, add them all up.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">How long does it take to set up and learn a new system? Will it cause problems with operations?</h3>
+                        <p>Well-known cloud-based platforms are made to be set up quickly, usually in days or weeks, not months. Phased rollouts and thorough training help keep things running smoothly. Compared to older, more complicated systems, modern software is much easier to learn because of how it is designed. Most dispatchers get used to things much faster than expected.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">Is it true that this software can work with our current tools, such as ELDs, TMS, and accounting?</h3>
+                        <p>Yes, one of the best things about modern platforms is how well they work together. Top solutions come with APIs and ready-made connections to well-known ELD providers, transportation management systems (TMS), accounting software (like QuickBooks), customer portals, and mapping services. Make sure the vendor you choose can handle the integrations you need.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">How does this make it easier to talk to drivers who aren't very good with technology?</h3>
+                        <p>Most modern platforms come with easy-to-use mobile apps for drivers. These apps make it easy to get clear instructions, status updates (like "Loaded," "On Route," and "Delivered"), directions, document capture (like PODs), and safe messaging. They are easy to use and don't require much technical skill. Fewer phone calls and easier communication help the driver do their job.</p> -->
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Nexterix</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Dispatch Automation</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Load Management</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Transportation Management System</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Real-time Tracking</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Trucking Automation</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Logistics Software</span>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div class="bg-lightgray p-6 rounded-xl mb-12">
+                        <div class="flex items-start">
+                            <img src="/Media/dua.jpeg" alt="Dua" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">About the Author</h3>
+                                <p class="font-medium">Dua</p>
+                                <p class="text-sm text-gray-600 mb-3">Logistics Technology Expert</p>
+                                <p class="text-gray-700">
+                                    Dua has over 15 years of experience in logistics technology. She specializes in
+                                    applications for supply chain optimization and frequently speaks at industry
+                                    conferences. Prior to joining Nexterix, Dua worked as a logistics consultant for
+                                    Fortune 500 companies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="https://www.nexterix.com/"><img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX"
+                                class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="TruckersCall.html" class="text-gray-700 hover:text-gray-900">TruckersCall CRM</a></li>
+                    </ul>
+                </div>
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                    </ul>
+                </div>
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="blog.html" class="text-gray-700 hover:text-gray-900">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('nx_menuToggle');
+            const closeMenu = document.getElementById('nx_closeMenu');
+            const mobileMenu = document.getElementById('nx_mobileMenu');
+
+            // Open mobile menu
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            // Close mobile menu
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+
+            // Close menu on resize if screen becomes larger
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Desktop Dropdowns
+        document.addEventListener('DOMContentLoaded', function () {
+            // ----- Desktop Dropdowns -----
+            const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+            // Add click handlers to each dropdown trigger
+            nxDropdownTriggers.forEach(trigger => {
+                const dropdownId = trigger.getAttribute('data-dropdown');
+                const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                if (!dropdownContent) return; // Skip if element not found
+
+                // Click handler for dropdown trigger
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent document click from immediately closing
+
+                    // Close all other dropdowns
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        if (dropdown !== dropdownContent) {
+                            dropdown.classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    dropdownContent.classList.toggle('hidden');
+                });
+
+                // Prevent dropdown content clicks from closing the dropdown
+                dropdownContent.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Don't let clicks bubble to document
+                });
+            });
+
+            // Close all dropdowns when clicking elsewhere
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                    dropdown.classList.add('hidden');
+                });
+            });
+
+            // ----- Mobile Dropdowns -----
+            const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+            nxMobileDropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                trigger.addEventListener('click', function () {
+                    // Toggle dropdown visibility
+                    content.classList.toggle('hidden');
+                    // Toggle icon rotation
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
