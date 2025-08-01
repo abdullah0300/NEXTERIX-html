@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="Media/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can AI Replace Your Back Office? Not Quite—But It Can Make It 5x Faster | Nexterix</title>
+    <meta name="description"
+        content="Discover how AI platforms like Nexterix’s Truckerscall can streamline your logistics back office, automating tasks like billing, routing, and compliance to boost efficiency.">
+    <meta name="keywords"
+        content="Nexterix, Truckerscall, AI Logistics, Back Office Automation, Trucking Software, Billing Automation, Compliance, Logistics Efficiency">
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <link rel="canonical" href="https://www.nexterix.com/blog/ai-back-office-logistics">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        navbg: '#e4dede',
+                        lightgray: '#f5f3f3',
+                        darkbg: '#1a1a1a',
+                        darkbg2: '#263238',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+    <div class="w-full overflow-hidden">
+        <!-- Navbar -->
+        <nav class="flex justify-between items-center p-5 bg-[#EDEDED] sticky top-0 z-50 shadow-sm">
+            <!-- Mobile burger menu -->
+            <div class="block md:hidden cursor-pointer text-2xl" id="nx_menuToggle">☰</div>
+            <!-- Logo -->
+            <div class="font-bold text-center md:text-left mx-auto md:mx-0">
+                <a href="/"> <img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10 md:h-10"></a>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <!-- Products Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_products">
+                            Products <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_products_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="TruckersCall.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">TruckersCall CRM</a>
+                        </div>
+                    </li>
+                    <!-- Services Dropdown -->
+                    <li class="relative nx-dropdown-container">
+                        <button type="button"
+                            class="nx-dropdown-trigger flex items-center text-gray-800 hover:text-primary focus:outline-none"
+                            data-dropdown="nx_services">
+                            Services <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="nx_services_dropdown"
+                            class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg hidden z-50 nx-dropdown-content">
+                            <a href="BPO.html" class="block px-4 py-2 hover:bg-primary hover:text-white">BPO</a>
+                            <a href="Digital-Solutions.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Digital Solutions</a>
+                            <a href="Logistics-Tech.html"
+                                class="block px-4 py-2 hover:bg-primary hover:text-white">Logistics Tech</a>
+                        </div>
+                    </li>
+                    <li><a href="About.html" class="text-gray-800 hover:text-primary">About Us</a></li>
+                    <li><a href="blog.html" class="text-gray-800 hover:text-primary font-medium">Blog</a></li>
+                    <li><a href="Contact.html" class="text-gray-800 hover:text-primary">Contact Us</a></li>
+                </ul>
+                <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                    class="ml-8 bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700">Let's Talk</a>
+            </div>
+            <!-- Mobile menu - hidden by default -->
+            <div class="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm hidden" id="nx_mobileMenu">
+                <div class="h-full w-4/5 max-w-sm ml-auto bg-white flex flex-col">
+                    <!-- Header with close button -->
+                    <div class="flex justify-between items-center p-5 border-b">
+                        <a href="/"><img src="Media/NEXTERIX LOGO.png" alt="NEXTERIX" class="h-10"></a>
+                        <div class="text-2xl cursor-pointer" id="nx_closeMenu">✕</div>
+                    </div>
+                    <!-- Mobile menu links -->
+                    <div class="p-5 flex-1 overflow-y-auto">
+                        <ul class="space-y-4">
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Products <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="TruckersCall.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">TruckersCall CRM</a>
+                                </div>
+                            </li>
+                            <li class="nx-mobile-dropdown">
+                                <button type="button"
+                                    class="nx-mobile-dropdown-trigger flex items-center justify-between w-full py-2">
+                                    Services <svg class="nx-mobile-dropdown-icon w-4 h-4 transition-transform"
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-width="2" d="M19 9l-7 7-7-7">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <div class="nx-mobile-dropdown-content hidden pl-4 mt-2 border-l space-y-2">
+                                    <a href="BPO.html" class="block py-1 text-gray-600 hover:text-primary">BPO</a>
+                                    <a href="Digital-Solutions.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Digital Solutions</a>
+                                    <a href="Logistics-Tech.html"
+                                        class="block py-1 text-gray-600 hover:text-primary">Logistics Tech</a>
+                                </div>
+                            </li>
+                            <li><a href="About.html" class="block py-2">About Us</a></li>
+                            <li><a href="blog.html" class="block py-2 font-medium">Blog</a></li>
+                            <li><a href="Contact.html" class="block py-2">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Mobile CTA -->
+                    <div class="p-5 border-t">
+                        <a href="https://fire.chilipiper.com/me/hassan-safdar/meeting-with-hassan"
+                            class="block w-full bg-primary text-white text-center px-4 py-3 rounded-full">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <div class="bg-lightgray py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center text-sm text-gray-600">
+                    <a href="/" class="hover:text-primary">Home</a>
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="blog.html" class="hover:text-primary">Blog</a>
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-800">Can AI Replace Your Back Office? Not Quite—But It Can Make It 5x Faster</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Header -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="flex items-center mb-4" data-aos="fade-up">
+                        <span class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">AI LOGISTICS</span>
+                        <span class="ml-3 text-gray-500 text-sm">August 1, 2025</span>
+                    </div>
+                    <h1 class="text-4xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">Can AI Replace Your Back Office? Not Quite—But It Can Make It 5x Faster</h1>
+                    <div class="flex items-center mb-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="/Media/dua.jpeg" alt="Dua" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <p class="font-medium">Dua</p>
+                            <p class="text-sm text-gray-500">Logistics Technology Expert</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Featured Image -->
+                <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/Media/ai-back-office-logistics.png" alt="AI Logistics" class="w-full h-[400px] object-cover rounded-xl shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <!-- Article Body -->
+                    <div class="prose prose-lg max-w-none mb-12" data-aos="fade-up">
+                        <p>Back office work is a necessary evil for any logistics business. It's the stuff that no one wants to do, such as billing, following rules, sending out packages, and paying people. And even though AI isn't going to fire your employees and run your business by itself (yet), platforms like Nexterix’s Truckerscall are showing that AI can make your back office work better and give you back your time and sanity.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">The Problem with the Old-Fashioned Back Office</h2>
+                        <p>Back office systems from the past were very manual. Think of piles of paperwork, spreadsheets that look like they came from the Stone Age, and phone calls that never end. Logistics companies that depend on speed and accuracy lose money quickly when things don't work right here. This is where Nexterix’s Truckerscall comes in. They make these tasks easier by using powerful automation tools that keep things running smoothly, quickly, and efficiently.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">AI Isn't Here to Take People's Jobs; It's Here to Help Them</h2>
+                        <p>You may have heard people say things like, "AI is taking our jobs!" In reality, AI in the back office is less about replacing jobs and more about getting rid of boring tasks. Truckerscall uses machine learning to handle things like billing, audit checks, load tracking, and document processing. This lets your human team focus on more strategic work that machines can't do yet.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Dispatch and Routing: From Chaos to Machine Accuracy</h2>
+                        <p>One of the most annoying things to do in the back office? Sending and directing, mapping out the best routes, and assigning loads by hand takes a lot of time and a sharp eye. Truckerscall uses AI-powered analytics to make the best route assignments and puts those choices right into your communications flow. This cuts down on dispatch time and fuel costs without the usual spreadsheet problems.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Billing and Invoicing: 3 Hours of Work Done in 10 Minutes</h2>
+                        <p>If you still have to make invoices by hand or call to find out when payments are due, you're wasting hours. Truckerscall uses AI to make invoices from load data in real time and keep track of when payments are due. No more mistakes or missing invoices. Just clean, on-time billing that makes your accountant cry tears of joy.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">AI Doesn't Get Sloppy When It Comes to Following Rules</h2>
+                        <p>Rules are always changing. Not getting an update or filing on time can cost you thousands. Nexterix's AI tools are trained on federal and state compliance rules, so they will let your team know about changes before they become violations. Truckerscall, on the other hand, takes care of filing forms, integrating ELDs, and reporting IFTA, so you stay compliant without overworking your back office staff.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Real-Time Data Equals Real-Time Choices</h2>
+                        <p>Waiting a week for reports? That's too slow for today's game. AI platforms like Nexterix’s Truckerscall get live data from TMS, GPS, load boards, and even customer portals to show you performance dashboards in real time. You don't just know what happened; you can see what's happening now and change your plans faster than your competitors.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">No More Friday Night Problems for Payroll and HR</h2>
+                        <p>Paying people by hand means tide to mistakes. And in trucking, where miles equal money, a small mistake can lead to a big payout problem. Truckerscall sends driver logs and load data straight to your payroll system, and makes sure drivers get paid on time and correctly—without making your HR team work all weekend.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Talking Hiccups? Not Any More</h2>
+                        <p>Every time an update is missed or a message is sent to the wrong place, the back office dies a little. We fix this by adding smart alerts to your workflow. Truckerscall keeps drivers, dispatchers, and managers all on the same page without any work on their part. No more broken phone, no more "I didn't get the message."</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Scalability That Doesn't Make You Burn Out</h2>
+                        <p>Here's the real deal: With AI-powered systems like Truckerscall, you can grow your fleet or client base without hiring five new people. Automation grows with you. That means your small team can handle a lot of growth while staying lean, getting more done, and still leaving the office on time.</p>
+                        <p><b><a href="/blog/mc-number-revoked" class="text-primary hover:underline">Read More: Top 5 Reasons Your MC Number Could Get Revoked (and How to Fix It)</a></b></p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Customer Experience That Works</h2>
+                        <p>When things are messy in the back office, it always affects customer service. Shippers get angry when invoices are late, routes are wrong, or updates are missing. But we make it easier to see and talk to people, and Truckerscall sends automatic updates to clients, which keeps them informed and builds trust with each delivery.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">It's Not "AI or Humans," It's "AI + Humans"</h2>
+                        <p>You still need smart people to work in your back office. But AI systems like Truckerscall take care of the boring tasks, which frees up your team to do what they do best: make decisions, solve problems, and build relationships. AI makes your workers five times more productive in the end.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">The Return on Investment (ROI) Is Quick and Easy to See</h2>
+                        <p>Let's talk about money. Companies that use Truckerscall say they spend 40–70% less time on admin work, get paid 25% faster, and save a lot of money on fines for not following the rules. Your profits don't just grow when your back office runs 5 times faster; they multiply.</p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">The Bottom Line: Change or Die</h2>
+                        <p>AI isn't just a trick. If logistics companies want to stay competitive, this is the new way to do business. Even small fleets can get big-league speed, accuracy, and scalability with Truckerscall. Don't wait for AI to take your job; instead, use it to make your back office work better.</p>
+                        <p><b><a href="https://www.nexterix.com/contact" class="text-primary hover:underline">Discover how Nexterix’s Truckerscall can transform your back office operations.</a></b></p>
+
+                        <h2 class="text-2xl font-bold mt-10 mb-4">Frequently Asked Questions</h2>
+                        <h3 class="text-xl font-semibold mt-8 mb-4">Is it possible for AI to take over my logistics back office team?</h3>
+                        <p>Not completely. AI-Powered Trucking Software, Truckerscall, is meant to automate tasks that are done over and over again, not to make decisions for people. They help your team by speeding up processes five times, but they don't get rid of the need for skilled workers.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">In what ways does Nexterix’s Truckerscall make billing and invoicing better?</h3>
+                        <p>Truckerscall automates billing by getting real-time data from dispatch and load systems. This cuts down on manual entry and makes sure that everything is correct, which speeds up invoicing and cuts down on payment delays.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">Are Nexterix’s Truckerscall only for big fleets?</h3>
+                        <p>Not even close. Truckerscall is also great for fleets of small to medium size. Their AI features can be scaled up or down to help businesses of all sizes save time on administrative tasks and grow without hiring more people.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">What kinds of things can AI do in the back office?</h3>
+                        <p>AI takes care of dispatch, routing, document scanning, payroll syncing, compliance checks, and more with Truckerscall. This gives your team more time to do high-value, strategic work.</p>
+
+                        <h3 class="text-xl font-semibold mt-8 mb-4">Is it costly to set up Truckerscall?</h3>
+                        <p>Truckerscall is a cloud-based platform that doesn't cost much and is easy to set up and maintain. They give small operators a good return on investment.</p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Nexterix</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Truckerscall</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">AI Logistics</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Back Office Automation</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Trucking Software</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Billing Automation</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Compliance</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Logistics Efficiency</span>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div class="bg-lightgray p-6 rounded-xl mb-12">
+                        <div class="flex items-start">
+                            <img src="/Media/dua.jpeg" alt="Dua" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">About the Author</h3>
+                                <p class="font-medium">Dua</p>
+                                <p class="text-sm text-gray-600 mb-3">Logistics Technology Expert</p>
+                                <p class="text-gray-700">
+                                    Dua has over 15 years of experience in logistics technology. She specializes in
+                                    applications for supply chain optimization and frequently speaks at industry
+                                    conferences. Prior to joining Nexterix, Dua worked as a logistics consultant for
+                                    Fortune 500 companies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Logo and Description Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <a href="https://www.nexterix.com/"><img src="/Media/NEXTERIX LOGO.png" alt="NEXTERIX"
+                                class="h-10"></a>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-center md:text-left">
+                        Effortless Financial Management: Simplified Invoicing, Accounting, and Supplier Control
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex space-x-3 mt-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-blue-400 btn-hover">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.021 10.021 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.9 13.9 0 007.548 2.209c9.054 0 14-7.503 14-14.001 0-.213-.005-.425-.014-.636A10.048 10.048 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Products Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">PRODUCTS</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="TruckersCall.html" class="text-gray-700 hover:text-gray-900">TruckersCall CRM</a></li>
+                    </ul>
+                </div>
+                <!-- Services Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">Services</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="BPO.html" class="text-gray-700 hover:text-gray-900">BPO</a></li>
+                        <li><a href="Logistics-Tech.html" class="text-gray-700 hover:text-gray-900">Logistics Tech</a></li>
+                        <li><a href="Digital-Solutions.html" class="text-gray-700 hover:text-gray-900">Digital Solutions</a></li>
+                    </ul>
+                </div>
+                <!-- About Column -->
+                <div class="col-span-1">
+                    <h3 class="text-sm font-bold uppercase text-gray-600 mb-4 text-center md:text-left">About</h3>
+                    <ul class="space-y-2 text-center md:text-left">
+                        <li><a href="About.html" class="text-gray-700 hover:text-gray-900">About</a></li>
+                        <li><a href="Contact.html" class="text-gray-700 hover:text-gray-900">Contact Us</a></li>
+                        <li><a href="blog.html" class="text-gray-700 hover:text-gray-900">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Bar -->
+        <div class="bg-red-500 text-white text-center py-4">
+            <p class="text-sm">© 2025 Nexterix, is proudly designed & created by <span class="font-bold underline"><a
+                        href="https://www.webcraftio.com/">WebCraftio</a></span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('nx_menuToggle');
+            const closeMenu = document.getElementById('nx_closeMenu');
+            const mobileMenu = document.getElementById('nx_mobileMenu');
+
+            // Open mobile menu
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            // Close mobile menu
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+
+            // Close menu on resize if screen becomes larger
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768 && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Desktop Dropdowns
+        document.addEventListener('DOMContentLoaded', function () {
+            // ----- Desktop Dropdowns -----
+            const nxDropdownTriggers = document.querySelectorAll('.nx-dropdown-trigger');
+
+            // Add click handlers to each dropdown trigger
+            nxDropdownTriggers.forEach(trigger => {
+                const dropdownId = trigger.getAttribute('data-dropdown');
+                const dropdownContent = document.getElementById(dropdownId + '_dropdown');
+
+                if (!dropdownContent) return; // Skip if element not found
+
+                // Click handler for dropdown trigger
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent document click from immediately closing
+
+                    // Close all other dropdowns
+                    document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                        if (dropdown !== dropdownContent) {
+                            dropdown.classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    dropdownContent.classList.toggle('hidden');
+                });
+
+                // Prevent dropdown content clicks from closing the dropdown
+                dropdownContent.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Don't let clicks bubble to document
+                });
+            });
+
+            // Close all dropdowns when clicking elsewhere
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.nx-dropdown-content').forEach(dropdown => {
+                    dropdown.classList.add('hidden');
+                });
+            });
+
+            // ----- Mobile Dropdowns -----
+            const nxMobileDropdowns = document.querySelectorAll('.nx-mobile-dropdown');
+
+            nxMobileDropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('.nx-mobile-dropdown-trigger');
+                const content = dropdown.querySelector('.nx-mobile-dropdown-content');
+                const icon = dropdown.querySelector('.nx-mobile-dropdown-icon');
+
+                if (!trigger || !content || !icon) return; // Skip if elements not found
+
+                trigger.addEventListener('click', function () {
+                    // Toggle dropdown visibility
+                    content.classList.toggle('hidden');
+                    // Toggle icon rotation
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
