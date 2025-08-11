@@ -3,14 +3,45 @@ Allow: /
 Disallow: /Media/
 Disallow: /.git/
 Disallow: /admin/
-Disallow: /wp-admin/ # If using WordPress
+Disallow: /wp-admin/
 Disallow: /login/
 Disallow: /logout/
-Disallow: /*?* # Prevent crawling of URLs with query parameters to avoid duplicate content
-Allow: /*.css$ # Ensure CSS files are crawlable for rendering
-Allow: /*.js$ # Ensure JavaScript files are crawlable for rendering
-Allow: /index.html # Explicitly allow index file in root
-Allow: /*.html$ # Allow all HTML files outside disallowed folders
+Disallow: /private/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /tmp/
+Disallow: /*?* # Avoid crawling duplicate content from query parameters
 
-# Sitemap
+# Allow important assets
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.woff$
+Allow: /*.woff2$
+
+# Explicitly allow important pages
+Allow: /index.html
+Allow: /*.html$
+
+# Special rules for AI crawlers
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /login/
+Disallow: /logout/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Sitemap locations
 Sitemap: https://www.nexterix.com/sitemap.xml
+Sitemap: https://www.nexterix.com/sitemap_index.xml 
